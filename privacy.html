@@ -3,28 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BtwUs — Privacy & Terms</title>
+  <title>BtwUs — Privacy & Terms Center</title>
   <meta name="description" content="Privacy Policy & Terms of Service for BtwUs — Your private relationship archive. 100% offline and encrypted.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/APP LOGO.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://btwus.app/privacy.html">
+  <meta property="og:title" content="BtwUs — Privacy & Terms Center">
+  <meta property="og:description" content="Privacy Policy & Terms of Service for BtwUs — Your private relationship archive. 100% offline and encrypted.">
+  <meta property="og:image" content="assets/images/app_hero_mockup.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://btwus.app/privacy.html">
+  <meta property="twitter:title" content="BtwUs — Privacy & Terms Center">
+  <meta property="twitter:description" content="Privacy Policy & Terms of Service for BtwUs — Your private relationship archive. 100% offline and encrypted.">
+  <meta property="twitter:image" content="assets/images/app_hero_mockup.jpg">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts: Outfit & Inter -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #FFF7F5;
-      color: #2B1F29;
-    }
-    
-    .font-outfit {
-      font-family: 'Outfit', sans-serif;
-    }
-  </style>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Tailwind Custom Configuration -->
+  <!-- Tailwind Configuration -->
   <script>
     tailwind.config = {
       theme: {
@@ -51,15 +56,21 @@
     }
   </script>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-brand-accent selection:text-white">
+<body class="min-h-screen flex flex-col bg-brand-background text-brand-text selection:bg-brand-accent selection:text-white">
+
+  <!-- Skip Navigation Link for Screen Readers (WCAG 2.4.1) -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-white focus:text-brand-accent focus:px-4 focus:py-2 focus:rounded-full focus:shadow-lg focus:border focus:border-brand-divider focus:outline-none">
+    Skip to main content
+  </a>
 
   <!-- Floating Navigation / Header -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-brand-divider">
+  <header id="main-header" class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-brand-divider transition-all duration-300">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
+      <!-- Logo back to home -->
+      <a href="index.html" class="flex items-center space-x-3 group" aria-label="BtwUs Homepage">
         <!-- Logo Icon (Hearts) -->
-        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-start to-brand-end flex items-center justify-center shadow-brand-glow text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 animate-pulse">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-start to-brand-end flex items-center justify-center shadow-brand-glow text-white transform group-hover:scale-105 transition duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 animate-pulse" aria-hidden="true">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
         </div>
@@ -67,14 +78,14 @@
           <span class="font-outfit font-extrabold text-xl tracking-tight bg-gradient-to-r from-brand-start to-brand-end bg-clip-text text-transparent">BtwUs</span>
           <span class="hidden sm:inline-block text-xs font-semibold text-brand-muted px-2 py-0.5 ml-2 bg-brand-background rounded-full border border-brand-divider">OFFLINE-FIRST</span>
         </div>
-      </div>
+      </a>
       
       <!-- Interactive Tab Switches -->
-      <div class="bg-brand-background p-1 rounded-full border border-brand-divider flex space-x-1">
-        <button id="tab-privacy-btn" onclick="switchTab('privacy')" class="px-4 py-1.5 rounded-full font-outfit text-sm font-semibold transition-all duration-300 shadow-sm bg-gradient-to-r from-brand-start to-brand-end text-white">
+      <div class="bg-brand-background p-1 rounded-full border border-brand-divider flex space-x-1" role="tablist" aria-label="Legal Center Navigation">
+        <button id="tab-privacy-btn" role="tab" aria-selected="true" aria-controls="privacy-section" class="px-4 py-1.5 rounded-full font-outfit text-sm font-semibold transition-all duration-300 shadow-sm bg-gradient-to-r from-brand-start to-brand-end text-white focus:outline-none">
           Privacy Policy
         </button>
-        <button id="tab-terms-btn" onclick="switchTab('terms')" class="px-4 py-1.5 rounded-full font-outfit text-sm font-semibold transition-all duration-300 text-brand-muted hover:text-brand-text">
+        <button id="tab-terms-btn" role="tab" aria-selected="false" aria-controls="terms-section" class="px-4 py-1.5 rounded-full font-outfit text-sm font-semibold transition-all duration-300 text-brand-muted hover:text-brand-text focus:outline-none">
           Terms of Service
         </button>
       </div>
@@ -100,17 +111,17 @@
     </div>
   </section>
 
-  <!-- Core Content Layout -->
-  <main class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
+  <!-- Core Content Layout Landmark -->
+  <main id="main-content" class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
       
       <!-- Side Navigation Panel (Desktop Floating) -->
-      <aside class="hidden lg:block lg:col-span-1">
+      <aside class="hidden lg:block lg:col-span-1" aria-label="Sidebar Navigation">
         <div class="sticky top-24 space-y-4">
           <p class="font-outfit text-xs font-bold uppercase tracking-wider text-brand-muted px-3">On This Page</p>
           
           <!-- Privacy Nav List -->
-          <nav id="privacy-nav" class="space-y-1 block">
+          <nav id="privacy-nav" class="space-y-1 block" aria-label="Privacy sections">
             <a href="#privacy-promise" class="flex items-center px-3 py-2 text-sm font-semibold rounded-lg text-brand-accent bg-white border border-brand-divider shadow-brand-soft">Our Privacy Promise</a>
             <a href="#data-collection" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Data We Collect</a>
             <a href="#on-device-ai" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">On-Device AI</a>
@@ -120,7 +131,7 @@
           </nav>
 
           <!-- Terms Nav List -->
-          <nav id="terms-nav" class="space-y-1 hidden">
+          <nav id="terms-nav" class="space-y-1 hidden" aria-label="Terms sections">
             <a href="#terms-usage" class="flex items-center px-3 py-2 text-sm font-semibold rounded-lg text-brand-accent bg-white border border-brand-divider shadow-brand-soft">Usage License</a>
             <a href="#terms-responsibility" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Your Responsibilities</a>
             <a href="#terms-billing" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Billing & Subscriptions</a>
@@ -134,7 +145,7 @@
       <div class="lg:col-span-3 space-y-12">
         
         <!-- ==================== PRIVACY POLICY PAGE ==================== -->
-        <div id="privacy-section" class="space-y-10 block">
+        <div id="privacy-section" role="tabpanel" aria-labelledby="tab-privacy-btn" class="space-y-10 block">
           
           <!-- Card 1: Our Privacy Promise -->
           <section id="privacy-promise" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
@@ -147,7 +158,7 @@
               </span>
               <h2 class="font-outfit font-extrabold text-2xl">Our Privacy Promise</h2>
             </div>
-            <p class="text-brand-text/95 leading-relaxed mb-4">
+            <p class="text-brand-text/95 leading-relaxed mb-4 font-medium">
               BtwUs is built on a simple, uncompromising premise: **what happens between you and your partner belongs only to the two of you**. 
             </p>
             <div class="bg-brand-background border border-brand-divider rounded-xl p-5 mb-4">
@@ -304,7 +315,7 @@
         </div>
 
         <!-- ==================== TERMS OF SERVICE PAGE ==================== -->
-        <div id="terms-section" class="space-y-10 hidden">
+        <div id="terms-section" role="tabpanel" aria-labelledby="tab-terms-btn" class="space-y-10 hidden">
           
           <!-- Card 1: Usage License -->
           <section id="terms-usage" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
@@ -397,7 +408,7 @@
             </div>
             
             <p class="text-brand-text/95 leading-relaxed mb-4 uppercase text-xs font-bold text-brand-muted tracking-wider">Disclaimer of Warranties</p>
-            <p class="text-brand-text/95 leading-relaxed mb-6">
+            <p class="text-brand-text/95 leading-relaxed mb-6 font-medium">
               BtwUs is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, or non-infringement.
             </p>
 
@@ -436,107 +447,7 @@
     </div>
   </footer>
 
-  <!-- Vanilla JavaScript for Interactive Tab Switching & Nav states -->
-  <script>
-    function switchTab(tab) {
-      const privacySection = document.getElementById('privacy-section');
-      const termsSection = document.getElementById('terms-section');
-      
-      const privacyBtn = document.getElementById('tab-privacy-btn');
-      const termsBtn = document.getElementById('tab-terms-btn');
-      
-      const privacyNav = document.getElementById('privacy-nav');
-      const termsNav = document.getElementById('terms-nav');
-      
-      const heroTitle = document.getElementById('hero-title');
-      const heroSubtitle = document.getElementById('hero-subtitle');
-
-      const activeBtnClasses = ['bg-gradient-to-r', 'from-brand-start', 'to-brand-end', 'text-white', 'shadow-sm'];
-      const inactiveBtnClasses = ['text-brand-muted', 'hover:text-brand-text'];
-
-      if (tab === 'privacy') {
-        // Show sections
-        privacySection.classList.remove('hidden');
-        privacySection.classList.add('block');
-        termsSection.classList.add('hidden');
-        termsSection.classList.remove('block');
-        
-        // Show desktop navs
-        privacyNav.classList.remove('hidden');
-        privacyNav.classList.add('block');
-        termsNav.classList.add('hidden');
-        termsNav.classList.remove('block');
-
-        // Styles on Buttons
-        activeBtnClasses.forEach(c => {
-          privacyBtn.classList.add(c);
-          termsBtn.classList.remove(c);
-        });
-        inactiveBtnClasses.forEach(c => {
-          privacyBtn.classList.remove(c);
-          termsBtn.classList.add(c);
-        });
-
-        // Set Banner copy
-        heroTitle.textContent = "BtwUs Privacy Policy";
-        heroSubtitle.textContent = "Your relationship data is sacred. That is why it is stored locally and completely encrypted. No cloud, no catch.";
-      } else {
-        // Show sections
-        termsSection.classList.remove('hidden');
-        termsSection.classList.add('block');
-        privacySection.classList.add('hidden');
-        privacySection.classList.remove('block');
-
-        // Show desktop navs
-        termsNav.classList.remove('hidden');
-        termsNav.classList.add('block');
-        privacyNav.classList.add('hidden');
-        privacyNav.classList.remove('block');
-
-        // Styles on Buttons
-        activeBtnClasses.forEach(c => {
-          termsBtn.classList.add(c);
-          privacyBtn.classList.remove(c);
-        });
-        inactiveBtnClasses.forEach(c => {
-          termsBtn.classList.remove(c);
-          privacyBtn.classList.add(c);
-        });
-
-        // Set Banner copy
-        heroTitle.textContent = "BtwUs Terms of Service";
-        heroSubtitle.textContent = "Please read these simple terms carefully. By using our offline app, you agree to these rules and ownership disclaimers.";
-      }
-    }
-
-    // Handle scroll indicators on desktop nav panel
-    window.addEventListener('DOMContentLoaded', () => {
-      const observerOptions = {
-        root: null,
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: 0
-      };
-
-      const links = document.querySelectorAll('aside nav a');
-      const sections = document.querySelectorAll('section');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            links.forEach(link => {
-              if (link.getAttribute('href') === `#${id}`) {
-                link.className = 'flex items-center px-3 py-2 text-sm font-semibold rounded-lg text-brand-accent bg-white border border-brand-divider shadow-brand-soft';
-              } else {
-                link.className = 'flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition';
-              }
-            });
-          }
-        });
-      }, observerOptions);
-
-      sections.forEach(section => observer.observe(section));
-    });
-  </script>
+  <!-- Modular Script Injection -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
