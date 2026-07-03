@@ -186,10 +186,8 @@
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
       <a href="#" class="flex items-center space-x-3 group" aria-label="BtwUs Homepage">
-        <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-brand-start to-brand-end flex items-center justify-center shadow-brand-glow text-white transform group-hover:scale-105 transition duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5 animate-pulse" aria-hidden="true">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
+        <div class="w-9 h-9 rounded-xl overflow-hidden shadow-brand-glow transform group-hover:scale-105 transition duration-300">
+          <img src="assets/images/APP LOGO.png" alt="BtwUs Logo" class="w-full h-full object-cover">
         </div>
         <span class="font-outfit font-black text-2xl tracking-tight bg-gradient-to-r from-brand-start to-brand-end bg-clip-text text-transparent">BtwUs</span>
       </a>
@@ -206,6 +204,7 @@
       <!-- Action Area -->
       <div class="flex items-center space-x-4">
         <a href="privacy.html" class="hidden sm:inline-block text-xs font-semibold text-brand-muted hover:text-brand-accent transition-colors">Privacy Policy</a>
+        <a href="terms.html" class="hidden sm:inline-block text-xs font-semibold text-brand-muted hover:text-brand-accent transition-colors">Terms of Use</a>
         <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full font-outfit text-xs font-black bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-brand-glow transition transform hover:-translate-y-0.5" aria-label="Get BtwUs on Google Play Store">
           Get BtwUs
         </a>
@@ -226,6 +225,7 @@
       <a href="#pricing" class="mobile-nav-link block py-2 text-brand-muted hover:text-brand-text font-semibold transition">Pricing Tiers</a>
       <a href="#faqs" class="mobile-nav-link block py-2 text-brand-muted hover:text-brand-text font-semibold transition">FAQs</a>
       <a href="privacy.html" class="block py-2 text-brand-accent font-semibold transition">Privacy Policy</a>
+      <a href="terms.html" class="block py-2 text-brand-accent font-semibold transition">Terms of Use</a>
     </div>
   </header>
 
@@ -680,6 +680,16 @@
           <span class="text-xs font-bold text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full uppercase tracking-wider font-outfit">Simple Pricing</span>
           <h2 class="font-outfit font-black text-3xl md:text-5xl text-brand-text tracking-tight">Support Local Devs</h2>
           <p class="text-brand-muted text-base">Keep our work independent. No recurrent cloud overheads.</p>
+
+          <!-- Billing Period Toggle -->
+          <div class="inline-flex items-center space-x-1 bg-brand-dark p-1 rounded-full border border-brand-border mt-6">
+            <button id="price-toggle-monthly" onclick="setPricingPeriod('monthly')" class="px-4 py-1.5 rounded-full font-outfit text-xs font-bold transition-all duration-300 bg-gradient-to-r from-brand-start to-brand-end text-white shadow-brand-glow">
+              Monthly
+            </button>
+            <button id="price-toggle-yearly" onclick="setPricingPeriod('yearly')" class="px-4 py-1.5 rounded-full font-outfit text-xs font-semibold transition-all duration-300 text-brand-muted hover:text-brand-text">
+              Yearly (Save 30%)
+            </button>
+          </div>
         </div>
 
         <!-- Cards Layout -->
@@ -712,70 +722,87 @@
             <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-bold text-sm bg-brand-border text-brand-text hover:bg-brand-accent hover:text-white transition duration-300">Download BtwUs</a>
           </div>
 
-          <!-- Tier 2: Plus (Featured) -->
+          <!-- Tier 2: Premium Plan (Dynamic Billing Toggle) -->
           <div class="bg-brand-card/60 border-2 border-brand-accent rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative shadow-brand-glow transform md:-translate-y-2 hover:-translate-y-3">
             <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-brand-accent text-white text-[9px] font-black uppercase tracking-widest px-4 py-1 rounded-full">Popular</div>
             <div class="space-y-6">
-              <h3 class="font-outfit font-extrabold text-lg text-brand-accent uppercase tracking-wider">Plus Archive</h3>
+              <h3 class="font-outfit font-extrabold text-lg text-brand-accent uppercase tracking-wider">BtwUs Premium</h3>
               <div class="space-y-1">
-                <span class="font-outfit font-black text-4xl text-brand-text">₹49</span>
-                <span class="text-xs text-brand-muted">/ Month</span>
+                <span id="premium-price-amount" class="font-outfit font-black text-4xl text-brand-text">₹149</span>
+                <span id="premium-price-period" class="text-xs text-brand-muted">/ Month</span>
+                <div>
+                  <span id="premium-price-badge" class="text-[9px] bg-brand-accent/20 text-brand-accent font-bold px-2 py-0.5 rounded-full mt-1 inline-block">7-Day Free Trial</span>
+                </div>
               </div>
-              <p class="text-xs text-brand-muted leading-relaxed">Full access to journaling, decoy locks, and streak habits.</p>
+              <p class="text-xs text-brand-muted leading-relaxed">Preserve all your memories, chats, and accountability streaks without limits.</p>
               <div class="border-t border-brand-border/40 my-4"></div>
               <ul class="space-y-3 text-xs text-brand-text/90">
                 <li class="flex items-center space-x-2.5">
                   <span class="text-brand-accent font-bold">✓</span>
-                  <span class="font-semibold text-white">Unlimited Memory items</span>
+                  <span class="font-semibold text-white">Unlimited memory vault</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
                   <span class="text-brand-accent font-bold">✓</span>
-                  <span>Decoy lock code security</span>
+                  <span>Local AI Semantic Search (Hindi + Regional)</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
                   <span class="text-brand-accent font-bold">✓</span>
-                  <span>Unlimited Habit trackers</span>
+                  <span>Auto-tagging classifier inside chats</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
                   <span class="text-brand-accent font-bold">✓</span>
-                  <span>Hindi & Regional language support</span>
+                  <span>Partner sync (QR Wi-Fi Sync)</span>
+                </li>
+                <li class="flex items-center space-x-2.5">
+                  <span class="text-brand-accent font-bold">✓</span>
+                  <span>10+ custom romantic themes</span>
+                </li>
+                <li class="flex items-center space-x-2.5">
+                  <span class="text-brand-accent font-bold">✓</span>
+                  <span>Weekly relationship recaps & insights</span>
+                </li>
+                <li class="flex items-center space-x-2.5">
+                  <span class="text-brand-accent font-bold">✓</span>
+                  <span>Biometric Decoy Vault</span>
+                </li>
+                <li class="flex items-center space-x-2.5">
+                  <span class="text-brand-accent font-bold">✓</span>
+                  <span>Ad-free experience</span>
                 </li>
               </ul>
             </div>
-            <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-black text-sm bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-brand-glow transition">Start Free Trial</a>
+            <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-black text-sm bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-brand-glow transition">Unlock Premium</a>
           </div>
 
-          <!-- Tier 3: Premium -->
+          <!-- Tier 3: Lifetime Deal -->
           <div class="bg-brand-card/40 border border-brand-border hover:border-brand-accent/20 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1">
             <div class="space-y-6">
-              <h3 class="font-outfit font-extrabold text-lg text-brand-muted uppercase tracking-wider">Premium Vault</h3>
+              <h3 class="font-outfit font-extrabold text-lg text-brand-muted uppercase tracking-wider">Lifetime Deal</h3>
               <div class="space-y-1">
-                <span class="font-outfit font-black text-4xl text-brand-text">₹99</span>
-                <span class="text-xs text-brand-muted">/ Month</span>
-                <p class="text-[10px] text-brand-accent font-bold pt-1">Or ₹1,499 Lifetime Purchase</p>
+                <span class="font-outfit font-black text-4xl text-brand-text">₹3999</span>
+                <span class="text-xs text-brand-muted">/ One-time</span>
+                <div>
+                  <span class="text-[9px] bg-amber-500/20 text-amber-400 font-bold px-2 py-0.5 rounded-full mt-1 inline-block">Yours Forever</span>
+                </div>
               </div>
-              <p class="text-xs text-brand-muted leading-relaxed">Personalization options, local WiFi data syncing, and insights charts.</p>
+              <p class="text-xs text-brand-muted leading-relaxed">Single payment, permanent access. All features and future updates included.</p>
               <div class="border-t border-brand-border/40 my-4"></div>
               <ul class="space-y-3 text-xs text-brand-muted">
                 <li class="flex items-center space-x-2.5">
                   <span class="text-emerald-400 font-bold">✓</span>
-                  <span>All features in Plus tier</span>
+                  <span>One-time billing, no sub fatigue</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
                   <span class="text-emerald-400 font-bold">✓</span>
-                  <span>10+ custom Coral Bloom themes</span>
+                  <span>All Premium features unlocked</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
                   <span class="text-emerald-400 font-bold">✓</span>
-                  <span>Local WiFi Sync between partners</span>
-                </li>
-                <li class="flex items-center space-x-2.5">
-                  <span class="text-emerald-400 font-bold">✓</span>
-                  <span>Detailed insights chart dashboard</span>
+                  <span>Includes all future updates</span>
                 </li>
               </ul>
             </div>
-            <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-bold text-sm bg-brand-border text-brand-text hover:bg-brand-accent hover:text-white transition duration-300">Upgrade to Premium</a>
+            <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-bold text-sm bg-brand-border text-brand-text hover:bg-brand-accent hover:text-white transition duration-300">Get Lifetime Pass</a>
           </div>
         </div>
       </div>
@@ -857,8 +884,10 @@
   <!-- Footer -->
   <footer class="bg-brand-dark border-t border-brand-border py-12 text-center text-sm text-brand-muted">
     <div class="max-w-6xl mx-auto px-6 space-y-6">
-      <div class="flex items-center justify-center space-x-2">
-        <span class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent text-xs" aria-hidden="true">❤️</span>
+      <div class="flex items-center justify-center space-x-3">
+        <div class="w-7 h-7 rounded-lg overflow-hidden shadow-brand-glow">
+          <img src="assets/images/APP LOGO.png" alt="BtwUs Logo" class="w-full h-full object-cover">
+        </div>
         <span class="font-outfit font-bold text-brand-text text-lg">BtwUs</span>
       </div>
       <div class="flex flex-wrap justify-center gap-6 text-xs text-brand-muted">
@@ -866,7 +895,8 @@
         <a href="#interactive-playground" class="hover:text-brand-accent transition-colors">Live Simulators</a>
         <a href="#security" class="hover:text-brand-accent transition-colors">Security Architecture</a>
         <a href="#pricing" class="hover:text-brand-accent transition-colors">Pricing Grid</a>
-        <a href="privacy.html" class="hover:text-brand-accent transition-colors font-bold text-brand-accent">Privacy Policy</a>
+        <a href="privacy.html" class="hover:text-brand-accent transition-colors">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-brand-accent transition-colors">Terms of Use</a>
       </div>
       <div class="border-t border-brand-border/40 pt-6 text-xs space-y-2">
         <p>&copy; 2026 BtwUs Relationship Archive. All rights reserved.</p>
@@ -1206,6 +1236,48 @@
       btn.className = 'px-3.5 py-1.5 rounded-lg bg-zinc-800 text-zinc-500 font-outfit font-bold text-[10px] cursor-default';
       
       createConfetti(card);
+    }
+
+    // 9. Pricing dynamic period updates
+    function setPricingPeriod(period) {
+      const monthlyBtn = document.getElementById('price-toggle-monthly');
+      const yearlyBtn = document.getElementById('price-toggle-yearly');
+      const priceAmount = document.getElementById('premium-price-amount');
+      const pricePeriod = document.getElementById('premium-price-period');
+      const priceBadge = document.getElementById('premium-price-badge');
+
+      const activeBtnClasses = ['bg-gradient-to-r', 'from-brand-start', 'to-brand-end', 'text-white', 'shadow-brand-glow'];
+      const inactiveBtnClasses = ['text-brand-muted', 'hover:text-brand-text'];
+
+      if (period === 'monthly') {
+        activeBtnClasses.forEach(c => {
+          monthlyBtn.classList.add(c);
+          yearlyBtn.classList.remove(c);
+        });
+        inactiveBtnClasses.forEach(c => {
+          monthlyBtn.classList.remove(c);
+          yearlyBtn.classList.add(c);
+        });
+
+        priceAmount.textContent = '₹149';
+        pricePeriod.textContent = '/ Month';
+        priceBadge.textContent = '7-Day Free Trial';
+        priceBadge.className = 'text-[9px] bg-brand-accent/20 text-brand-accent font-bold px-2 py-0.5 rounded-full mt-1 inline-block';
+      } else {
+        activeBtnClasses.forEach(c => {
+          yearlyBtn.classList.add(c);
+          monthlyBtn.classList.remove(c);
+        });
+        inactiveBtnClasses.forEach(c => {
+          yearlyBtn.classList.remove(c);
+          monthlyBtn.classList.add(c);
+        });
+
+        priceAmount.textContent = '₹1249';
+        pricePeriod.textContent = '/ Year';
+        priceBadge.textContent = 'Save ₹539/year';
+        priceBadge.className = 'text-[9px] bg-green-500/20 text-green-400 font-bold px-2 py-0.5 rounded-full mt-1 inline-block';
+      }
     }
   </script>
 </body>
