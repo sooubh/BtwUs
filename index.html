@@ -5,29 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BtwUs — Your Private Relationship Archive</title>
   <meta name="description" content="A private relationship archive for couples. Import WhatsApp chats, log commitments, and save memories — 100% offline and encrypted.">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/APP LOGO.png">
+  <meta name="keywords" content="private relationship archive, offline couple app, secure couple journal, encrypted chat parser, offline relationship diary, couples journal, no-cloud couple space">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://btwus.app/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://btwus.app/">
   <meta property="og:title" content="BtwUs — Your Private Relationship Archive">
   <meta property="og:description" content="A private relationship archive for couples. Import WhatsApp chats, log commitments, and save memories — 100% offline and encrypted.">
-  <meta property="og:image" content="assets/images/app_hero_mockup.jpg">
+  <meta property="og:image" content="https://btwus.app/assets/images/app_hero_mockup.jpg">
 
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://btwus.app/">
-  <meta property="twitter:title" content="BtwUs — Your Private Relationship Archive">
-  <meta property="twitter:description" content="A private relationship archive for couples. Import WhatsApp chats, log commitments, and save memories — 100% offline and encrypted.">
-  <meta property="twitter:image" content="assets/images/app_hero_mockup.jpg">
-  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://btwus.app/">
+  <meta name="twitter:title" content="BtwUs — Your Private Relationship Archive">
+  <meta name="twitter:description" content="A private relationship archive for couples. Import WhatsApp chats, log commitments, and save memories — 100% offline and encrypted.">
+  <meta name="twitter:image" content="https://btwus.app/assets/images/app_hero_mockup.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/APP LOGO.png">
+
+  <!-- Structured Data: SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BtwUs",
+    "operatingSystem": "Android",
+    "applicationCategory": "LifestyleApplication",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "INR",
+      "lowPrice": "0",
+      "highPrice": "1499",
+      "offerCount": "3"
+    },
+    "description": "A private offline-first relationship archive for couples. Import WhatsApp chats, log commitments, and save memories with on-device encryption and zero cloud storage.",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.sooubh.btwus",
+    "author": {
+      "@type": "Person",
+      "name": "Sourabh",
+      "email": "sourabh3527@gmail.com"
+    }
+  }
+  </script>
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Google Fonts: Outfit & Inter -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0B0609;
+      color: #FFF5F7;
+    }
+    
+    .font-outfit {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0609;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #25131E;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #FF4D7D;
+    }
+
+    /* Keyframe Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(1deg); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.15; transform: scale(1); }
+      50% { opacity: 0.25; transform: scale(1.1); }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 8s ease-in-out infinite;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+    .animate-shake {
+      animation: shake 0.2s ease-in-out 0s 2;
+    }
+
+    /* Keyboard focus accessibility outline */
+    *:focus-visible {
+      outline: 2px solid #FF4D7D !important;
+      outline-offset: 4px !important;
+    }
+
+    /* Gradient Text Utility */
+    .text-gradient-coral {
+      background: linear-gradient(135deg, #FF5C8A 0%, #FF8C6B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Phone Mockup Screen Crossfade transition */
+    .screenshot-fade {
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    /* Confetti animation */
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: confettiFall 1.2s ease-out forwards;
+    }
+    @keyframes confettiFall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(120px) rotate(360deg); opacity: 0; }
+    }
+  </style>
 
   <!-- Tailwind Configuration -->
   <script>
@@ -36,36 +149,41 @@
         extend: {
           colors: {
             brand: {
-              background: '#FFF7F5',
-              surface: '#FFFFFF',
+              background: '#0B0609',
+              dark: '#140A10',
+              card: '#1F111A',
+              border: '#351C2C',
               accent: '#FF4D7D',
-              text: '#2B1F29',
-              muted: '#9C8B97',
               start: '#FF5C8A',
               end: '#FF8C6B',
-              divider: 'rgba(255, 77, 125, 0.08)',
-              shadow: 'rgba(255, 92, 138, 0.16)'
+              text: '#FFF5F7',
+              muted: '#AC9EA8'
             }
           },
           boxShadow: {
-            'brand-soft': '0 12px 40px rgba(255, 92, 138, 0.06)',
-            'brand-glow': '0 4px 24px rgba(255, 77, 125, 0.2)',
+            'brand-glow': '0 0 30px rgba(255, 77, 125, 0.2)',
+            'accent-glow': '0 4px 20px rgba(255, 77, 125, 0.4)',
+            'inner-glow': 'inset 0 0 15px rgba(255, 77, 125, 0.05)'
           }
         }
       }
     }
   </script>
 </head>
-<body class="min-h-screen flex flex-col bg-brand-background text-brand-text selection:bg-brand-accent selection:text-white">
+<body class="min-h-screen flex flex-col bg-brand-background selection:bg-brand-accent selection:text-white relative overflow-x-hidden">
 
-  <!-- Skip Navigation Link for Screen Readers (WCAG 2.4.1) -->
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-white focus:text-brand-accent focus:px-4 focus:py-2 focus:rounded-full focus:shadow-lg focus:border focus:border-brand-divider focus:outline-none">
+  <!-- Ambient Glow Backdrops -->
+  <div class="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-brand-start to-brand-accent filter blur-[150px] opacity-10 animate-pulse-slow pointer-events-none"></div>
+  <div class="absolute top-1/2 right-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-brand-end to-brand-accent filter blur-[130px] opacity-10 animate-pulse-slow pointer-events-none" style="animation-delay: -3s;"></div>
+
+  <!-- Accessibility Skip Navigation Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-brand-card focus:text-brand-accent focus:px-4 focus:py-2 focus:rounded-full focus:shadow-lg focus:border focus:border-brand-border focus:outline-none">
     Skip to main content
   </a>
 
-  <!-- Header / Navigation -->
-  <header id="main-header" class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-brand-divider transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+  <!-- Header Navigation -->
+  <header id="main-header" class="sticky top-0 z-50 bg-brand-background/80 backdrop-blur-md border-b border-white/[0.04] transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
       <a href="#" class="flex items-center space-x-3 group" aria-label="BtwUs Homepage">
         <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-brand-start to-brand-end flex items-center justify-center shadow-brand-glow text-white transform group-hover:scale-105 transition duration-300">
@@ -76,22 +194,23 @@
         <span class="font-outfit font-black text-2xl tracking-tight bg-gradient-to-r from-brand-start to-brand-end bg-clip-text text-transparent">BtwUs</span>
       </a>
 
-      <!-- Desktop Menu -->
+      <!-- Desktop Navigation Menu -->
       <nav id="desktop-menu" class="hidden md:flex items-center space-x-8" aria-label="Primary Navigation">
-        <a href="#features" class="nav-link text-sm font-semibold text-brand-text/80 hover:text-brand-accent transition">Features</a>
-        <a href="#security" class="nav-link text-sm font-semibold text-brand-text/80 hover:text-brand-accent transition">Security</a>
-        <a href="#pricing" class="nav-link text-sm font-semibold text-brand-text/80 hover:text-brand-accent transition">Pricing</a>
-        <a href="#faqs" class="nav-link text-sm font-semibold text-brand-text/80 hover:text-brand-accent transition font-outfit">FAQs</a>
+        <a href="#features" class="text-sm font-semibold text-brand-muted hover:text-brand-text transition-colors">Features</a>
+        <a href="#interactive-playground" class="text-sm font-semibold text-brand-muted hover:text-brand-text transition-colors">Live Simulators</a>
+        <a href="#security" class="text-sm font-semibold text-brand-muted hover:text-brand-text transition-colors">Security</a>
+        <a href="#pricing" class="text-sm font-semibold text-brand-muted hover:text-brand-text transition-colors">Pricing</a>
+        <a href="#faqs" class="text-sm font-semibold text-brand-muted hover:text-brand-text transition-colors">FAQs</a>
       </nav>
 
-      <!-- Action Buttons -->
+      <!-- Action Area -->
       <div class="flex items-center space-x-4">
-        <a href="privacy.html#privacy" class="text-sm font-semibold text-brand-muted hover:text-brand-accent transition">Privacy Policy</a>
-        <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="px-5 py-2 rounded-full font-outfit text-sm font-bold bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-brand-glow transition transform hover:-translate-y-0.5 btn-micro-bounce">
+        <a href="privacy.html" class="hidden sm:inline-block text-xs font-semibold text-brand-muted hover:text-brand-accent transition-colors">Privacy Policy</a>
+        <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full font-outfit text-xs font-black bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-brand-glow transition transform hover:-translate-y-0.5" aria-label="Get BtwUs on Google Play Store">
           Get BtwUs
         </a>
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-btn" class="md:hidden text-brand-text hover:text-brand-accent focus:outline-none" aria-label="Toggle Menu">
+        <!-- Mobile Menu Hamburger Trigger -->
+        <button id="mobile-menu-btn" class="md:hidden text-brand-text hover:text-brand-accent focus:outline-none" aria-label="Toggle Menu" aria-expanded="false">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16m-7 6h7"/>
           </svg>
@@ -100,392 +219,622 @@
     </div>
 
     <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-brand-divider px-6 py-4 space-y-3 shadow-brand-soft">
-      <a href="#features" class="mobile-nav-link block py-2 text-brand-text/80 hover:text-brand-accent font-semibold transition">Features</a>
-      <a href="#security" class="mobile-nav-link block py-2 text-brand-text/80 hover:text-brand-accent font-semibold transition">Security</a>
-      <a href="#pricing" class="mobile-nav-link block py-2 text-brand-text/80 hover:text-brand-accent font-semibold transition">Pricing</a>
-      <a href="#faqs" class="mobile-nav-link block py-2 text-brand-text/80 hover:text-brand-accent font-semibold transition font-outfit">FAQs</a>
-      <a href="privacy.html#privacy" class="block py-2 text-brand-muted hover:text-brand-accent font-semibold transition">Privacy Policy</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 border-t border-brand-border px-6 py-6 space-y-4 shadow-xl">
+      <a href="#features" class="mobile-nav-link block py-2 text-brand-muted hover:text-brand-text font-semibold transition">Features</a>
+      <a href="#interactive-playground" class="mobile-nav-link block py-2 text-brand-muted hover:text-brand-text font-semibold transition">Live Simulators</a>
+      <a href="#security" class="mobile-nav-link block py-2 text-brand-muted hover:text-brand-text font-semibold transition font-outfit">Security Architecture</a>
+      <a href="#pricing" class="mobile-nav-link block py-2 text-brand-muted hover:text-brand-text font-semibold transition">Pricing Tiers</a>
+      <a href="#faqs" class="mobile-nav-link block py-2 text-brand-muted hover:text-brand-text font-semibold transition">FAQs</a>
+      <a href="privacy.html" class="block py-2 text-brand-accent font-semibold transition">Privacy Policy</a>
     </div>
   </header>
 
-  <!-- Main Content Landmarker -->
+  <!-- Main Content Area -->
   <main id="main-content" class="flex-grow">
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative pt-12 pb-24 px-4 overflow-hidden">
+    <!-- Hero Showcase Section -->
+    <section id="hero" class="relative pt-12 pb-24 px-6 overflow-hidden">
       <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <!-- Copy Block -->
-        <div class="lg:col-span-6 space-y-8 text-center lg:text-left">
+        <!-- Copy Column -->
+        <div class="lg:col-span-7 space-y-8 text-center lg:text-left z-10">
           <div class="inline-flex items-center space-x-2 bg-brand-accent/10 border border-brand-accent/20 px-4 py-1.5 rounded-full text-brand-accent text-xs font-bold font-outfit uppercase tracking-wider">
             <span>❤️ 100% Offline Couple Space</span>
           </div>
           <h1 class="font-outfit font-black text-4xl md:text-6xl text-brand-text tracking-tight leading-[1.1]">
-            Your private <span class="bg-gradient-to-r from-brand-start to-brand-end bg-clip-text text-transparent">relationship</span> archive.
+            Your private <span class="text-gradient-coral">relationship</span> archive.
           </h1>
-          <p class="text-brand-muted text-lg md:text-xl font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
-            A local space for you and your partner to preserve memories, chats, and commitments. No accounts, no cloud servers — completely offline and encrypted on your device.
+          <p class="text-brand-muted text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            A beautiful, secure, local-first journal for you and your partner. Import WhatsApp logs, log promise streaks, and archive memories. Zero cloud servers — completely offline and encrypted on your physical device.
           </p>
           
           <!-- Trust Badges -->
           <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-brand-muted pt-2">
-            <span class="flex items-center space-x-1.5 bg-white border border-brand-divider px-3 py-1.5 rounded-full shadow-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-green-500" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
-              <span>No Cloud Sync</span>
+            <span class="flex items-center space-x-1.5 bg-brand-card/60 border border-brand-border px-3.5 py-2 rounded-full shadow-inner-glow">
+              <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+              </svg>
+              <span>No Accounts, No Cloud</span>
             </span>
-            <span class="flex items-center space-x-1.5 bg-white border border-brand-divider px-3 py-1.5 rounded-full shadow-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-green-500" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
-              <span>AES-256 Encrypted</span>
+            <span class="flex items-center space-x-1.5 bg-brand-card/60 border border-brand-border px-3.5 py-2 rounded-full shadow-inner-glow">
+              <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+              <span>AES-256 SQLCipher</span>
             </span>
-            <span class="flex items-center space-x-1.5 bg-white border border-brand-divider px-3 py-1.5 rounded-full shadow-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-green-500" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-              <span>Zero Accounts Needed</span>
+            <span class="flex items-center space-x-1.5 bg-brand-card/60 border border-brand-border px-3.5 py-2 rounded-full shadow-inner-glow">
+              <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+              </svg>
+              <span>100% Local Hardware</span>
             </span>
           </div>
 
-          <!-- Call to Actions -->
+          <!-- CTAs -->
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-            <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-full font-outfit font-black text-lg bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-brand-glow transition transform hover:-translate-y-0.5 text-center inline-flex items-center justify-center space-x-2 btn-micro-bounce">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-full font-outfit font-black text-lg bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-brand-glow hover:scale-102 transition transform duration-300 text-center flex items-center justify-center space-x-3">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3.25 1.413v21.174c0 .546.429.986.97.986.196 0 .386-.057.549-.168l17.753-10.587c.304-.182.478-.506.478-.853s-.174-.672-.478-.853L4.769 1.581A.978.978 0 004.22 1.413c-.541 0-.97.44-.97.986z"/>
               </svg>
-              <span>Get BtwUs on Google Play</span>
+              <span>Get on Google Play</span>
+            </a>
+            <a href="#interactive-playground" class="w-full sm:w-auto px-8 py-4 rounded-full font-outfit font-bold text-lg bg-brand-dark border border-brand-border text-brand-text hover:bg-brand-card hover:border-brand-accent transition duration-300 text-center">
+              Try Interactive Simulators
             </a>
           </div>
         </div>
 
-        <!-- Mockup Showcase -->
-        <div class="lg:col-span-6 flex justify-center relative">
-          <div class="absolute inset-0 bg-gradient-to-tr from-brand-start/20 to-brand-end/20 rounded-full filter blur-3xl opacity-60"></div>
-          <div class="relative w-full max-w-[500px] border border-white/20 p-2 rounded-[2rem] bg-white/10 backdrop-blur-sm shadow-2xl">
-            <img src="assets/images/app_hero_mockup.jpg" alt="BtwUs App Mockup Timeline" class="w-full h-auto rounded-[1.8rem] border border-brand-divider shadow-brand-soft">
+        <!-- Phone Showcase Column -->
+        <div class="lg:col-span-5 flex justify-center relative">
+          <!-- Glow backing -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-brand-start/20 to-brand-end/20 rounded-full filter blur-3xl opacity-50 animate-pulse-slow"></div>
+          
+          <!-- Smartphone CSS Frame -->
+          <div class="relative w-[300px] h-[610px] border-[8px] border-zinc-800 rounded-[48px] bg-black shadow-2xl overflow-hidden ring-4 ring-white/5 animate-float z-10">
+            <!-- Dynamic Speaker Notch -->
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-40 flex items-center justify-center">
+              <div class="w-12 h-1 bg-zinc-800 rounded-full mb-1"></div>
+            </div>
+
+            <!-- Screenshot Containers -->
+            <div class="relative w-full h-full bg-brand-dark">
+              <img id="hero-screenshot-0" src="assets/images/Splash Screen.png" alt="BtwUs Splash Screen" class="absolute inset-0 w-full h-full object-cover screenshot-fade opacity-100 z-30">
+              <img id="hero-screenshot-1" src="assets/images/timeline.png" alt="BtwUs Timeline" class="absolute inset-0 w-full h-full object-cover screenshot-fade opacity-0 z-20">
+              <img id="hero-screenshot-2" src="assets/images/commitment.png" alt="BtwUs Commitments" class="absolute inset-0 w-full h-full object-cover screenshot-fade opacity-0 z-20">
+              <img id="hero-screenshot-3" src="assets/images/vault.png" alt="BtwUs Vault" class="absolute inset-0 w-full h-full object-cover screenshot-fade opacity-0 z-20">
+              <img id="hero-screenshot-4" src="assets/images/security.png" alt="BtwUs Settings" class="absolute inset-0 w-full h-full object-cover screenshot-fade opacity-0 z-20">
+            </div>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Offline Trust Block -->
-    <section id="stats" class="bg-white border-y border-brand-divider py-16 px-4">
-      <div class="max-w-4xl mx-auto text-center space-y-6">
-        <span class="text-xs font-bold text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full uppercase tracking-wider font-outfit">🔒 Zero-Cloud Security Architecture</span>
-        <h2 class="font-outfit font-extrabold text-3xl md:text-4xl text-brand-text tracking-tight">Your Intimate Moments Stay Yours</h2>
-        <p class="text-brand-muted text-base md:text-lg leading-relaxed">
-          Unlike other couple sharing apps, BtwUs stores **zero data on external servers**. When you import your WhatsApp chat histories or upload photos, the processing happens locally on your physical processor. We have no backend server, which means there is no remote database to breach. Your relationship history remains 100% offline.
-        </p>
-      </div>
-    </section>
-
-    <!-- Interactive Features Section -->
-    <section id="features" class="py-24 px-4 bg-brand-background">
+    <!-- Interactive Features Bento Grid Section -->
+    <section id="features" class="py-24 px-6 bg-brand-dark/40 border-y border-brand-border/40 relative">
       <div class="max-w-6xl mx-auto space-y-16">
         <div class="text-center space-y-4 max-w-2xl mx-auto">
-          <h2 class="font-outfit font-black text-3xl md:text-5xl tracking-tight text-brand-text">Core Application Capabilities</h2>
-          <p class="text-brand-muted text-lg font-medium">Explore the local tools designed exclusively for your offline archive.</p>
+          <span class="text-xs font-bold text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full uppercase tracking-wider font-outfit">Core Capabilities</span>
+          <h2 class="font-outfit font-black text-3xl md:text-5xl tracking-tight text-brand-text">Beautifully Local. Highly Capable.</h2>
+          <p class="text-brand-muted text-lg">Hover over each card to update the smartphone display above and inspect the features.</p>
         </div>
 
-        <!-- Tab Buttons with ARIA roles (WCAG 4.1.2) -->
-        <div role="tablist" aria-label="Core Application Capabilities" class="flex flex-wrap justify-center gap-2 border-b border-brand-divider pb-4 max-w-3xl mx-auto">
-          <button id="tab-timeline" role="tab" aria-selected="true" aria-controls="feature-panel" class="px-5 py-2.5 rounded-full font-outfit text-sm font-bold bg-white text-brand-accent border border-brand-divider shadow-sm transition-all duration-300 active-feature-tab">
-            📸 Memory Timeline
-          </button>
-          <button id="tab-whatsapp" role="tab" aria-selected="false" aria-controls="feature-panel" class="px-5 py-2.5 rounded-full font-outfit text-sm font-semibold text-brand-muted hover:text-brand-text transition-all duration-300">
-            💬 WhatsApp Import
-          </button>
-          <button id="tab-commitments" role="tab" aria-selected="false" aria-controls="feature-panel" class="px-5 py-2.5 rounded-full font-outfit text-sm font-semibold text-brand-muted hover:text-brand-text transition-all duration-300">
-            🤝 Commitments & Streaks
-          </button>
-          <button id="tab-local-ai" role="tab" aria-selected="false" aria-controls="feature-panel" class="px-5 py-2.5 rounded-full font-outfit text-sm font-semibold text-brand-muted hover:text-brand-text transition-all duration-300">
-            🤖 On-Device AI
-          </button>
-        </div>
-
-        <!-- Feature Content Display Grid as Tab Panel (WCAG 4.1.2) -->
-        <div id="feature-panel" role="tabpanel" aria-labelledby="tab-timeline" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto pt-6">
-          
-          <!-- Feature Copy (changes based on tab) -->
-          <div id="feature-copy" class="lg:col-span-5 space-y-6">
-            <h3 id="feature-title" class="font-outfit font-extrabold text-2xl md:text-3xl text-brand-text">📸 Chronological Memory Timeline</h3>
-            <p id="feature-desc" class="text-brand-muted leading-relaxed">
-              Preserve all your relationship events chronologically. Capture texts, photos, videos, and files in a beautifully formatted scrollable feed. Easily search tags, emotions, or keyword notes locally.
-            </p>
-            <div class="space-y-3">
-              <h4 class="font-outfit font-bold text-xs uppercase text-brand-accent tracking-wider">Features included:</h4>
-              <ul id="feature-bullets" class="space-y-2 text-sm text-brand-text/90">
+        <!-- Bento Layout Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <!-- Card 1: Timeline (Large) -->
+          <div class="md:col-span-8 bg-brand-card/50 border border-brand-border hover:border-brand-accent/40 rounded-3xl p-8 flex flex-col md:flex-row gap-8 items-center transition-all duration-300 group hover:shadow-brand-glow" onmouseenter="setHeroScreenshot(1)">
+            <div class="space-y-4 flex-1">
+              <div class="w-10 h-10 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-brand-accent font-bold">📸</div>
+              <h3 class="font-outfit font-extrabold text-2xl text-brand-text group-hover:text-brand-accent transition-colors">Chronological Memory Timeline</h3>
+              <p class="text-brand-muted text-sm leading-relaxed">
+                Save journal entries, capture dates, attach voice notes, photos, and files in a fluid, search-optimized timeline. Automatically groups memory items by dates and important relationship milestones.
+              </p>
+              <ul class="space-y-2 text-xs text-brand-muted">
                 <li class="flex items-center space-x-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                  <span>Auto-grouped by dates and relationship milestones</span>
+                  <span>Interactive tags & custom relationship folders</span>
                 </li>
                 <li class="flex items-center space-x-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                  <span>Includes local voice memos and media details</span>
-                </li>
-                <li class="flex items-center space-x-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-                  <span>Optional biometric vault lock protection</span>
+                  <span>Voice memos & local photo/video carousels</span>
                 </li>
               </ul>
             </div>
+            <div class="w-full md:w-48 h-40 bg-brand-background/80 rounded-2xl overflow-hidden border border-brand-border relative">
+              <img src="assets/images/timeline.png" alt="Timeline screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
           </div>
 
-          <!-- Feature Graphical Mockup -->
-          <div class="lg:col-span-7 flex justify-center">
-            <div class="w-full max-w-[480px] bg-white border border-brand-divider p-4 rounded-2xl shadow-brand-soft">
-              <div id="feature-mock" class="bg-brand-background rounded-xl p-6 h-[260px] flex items-center justify-center text-center overflow-hidden relative">
-                <!-- Visual Mockup Card -->
-                <div id="visual-content" class="w-full space-y-4">
-                  <div class="bg-white p-3 rounded-lg shadow-sm border border-brand-divider max-w-[280px] mx-auto text-left flex items-start space-x-3">
-                    <div class="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent font-bold">❤️</div>
-                    <div>
-                      <p class="text-xs font-bold text-brand-text">First Date Met</p>
-                      <p class="text-[10px] text-brand-muted">Met at The Daily Bean cafe</p>
-                    </div>
+          <!-- Card 2: Security (Small) -->
+          <div class="md:col-span-4 bg-brand-card/50 border border-brand-border hover:border-brand-accent/40 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 group hover:shadow-brand-glow" onmouseenter="setHeroScreenshot(4)">
+            <div class="space-y-4">
+              <div class="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 font-bold">🔒</div>
+              <h3 class="font-outfit font-extrabold text-xl text-brand-text group-hover:text-violet-400 transition-colors">SQLCipher Storage</h3>
+              <p class="text-brand-muted text-sm leading-relaxed">
+                We bundle SQLCipher to encrypt your local SQLite database using industry-grade AES-256 with key derivation. Zero unencrypted traces are ever written to your phone disk.
+              </p>
+            </div>
+            <div class="pt-6 text-xs text-brand-accent font-bold group-hover:underline">Read security docs &rarr;</div>
+          </div>
+
+          <!-- Card 3: WhatsApp Chat Parser (Small) -->
+          <div class="md:col-span-4 bg-brand-card/50 border border-brand-border hover:border-brand-accent/40 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 group hover:shadow-brand-glow" onmouseenter="setHeroScreenshot(0)">
+            <div class="space-y-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">💬</div>
+              <h3 class="font-outfit font-extrabold text-xl text-brand-text group-hover:text-emerald-400 transition-colors">Local WhatsApp Parser</h3>
+              <p class="text-brand-muted text-sm leading-relaxed">
+                Import chat exports safely. Our client-side code parses raw logs, builds full timelines, categorizes disputes, and logs sweet memories without touching any external API.
+              </p>
+            </div>
+            <div class="pt-6 text-xs text-emerald-400 font-bold">100% Private Offline Process</div>
+          </div>
+
+          <!-- Card 4: Commitments (Large) -->
+          <div class="md:col-span-8 bg-brand-card/50 border border-brand-border hover:border-brand-accent/40 rounded-3xl p-8 flex flex-col md:flex-row gap-8 items-center transition-all duration-300 group hover:shadow-brand-glow" onmouseenter="setHeroScreenshot(2)">
+            <div class="space-y-4 flex-1">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold">🤝</div>
+              <h3 class="font-outfit font-extrabold text-2xl text-brand-text group-hover:text-brand-accent transition-colors">Commitment & Promise Streaks</h3>
+              <p class="text-brand-muted text-sm leading-relaxed">
+                Build healthy, fun relationship habits. Set mutual commitments, log daily updates, and track streak counters. Includes color-coded alerts (Green, Orange, Red) and partner verification.
+              </p>
+              <ul class="space-y-2 text-xs text-brand-muted">
+                <li class="flex items-center space-x-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                  <span>Habit streak triggers & reminders</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                  <span>Dual confirmation check-in mechanics</span>
+                </li>
+              </ul>
+            </div>
+            <div class="w-full md:w-48 h-40 bg-brand-background/80 rounded-2xl overflow-hidden border border-brand-border relative">
+              <img src="assets/images/commitment.png" alt="Commitment screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Showcases (Playground Widgets) -->
+    <section id="interactive-playground" class="py-24 px-6 bg-gradient-to-b from-brand-background via-brand-dark/20 to-brand-background">
+      <div class="max-w-6xl mx-auto space-y-16">
+        <div class="text-center space-y-4 max-w-2xl mx-auto">
+          <span class="text-xs font-bold text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full uppercase tracking-wider font-outfit">Interactive Playground</span>
+          <h2 class="font-outfit font-black text-3xl md:text-5xl tracking-tight text-brand-text">Try App Features Live</h2>
+          <p class="text-brand-muted text-lg">Click the tabs below to play with real simulations of BtwUs features directly in your browser.</p>
+        </div>
+
+        <!-- Playground Tabs Container -->
+        <div class="bg-brand-card/30 border border-brand-border/60 rounded-[32px] p-6 md:p-10 shadow-2xl relative overflow-hidden">
+          
+          <!-- Tab Selector Buttons -->
+          <div role="tablist" class="flex flex-wrap gap-3 justify-center border-b border-brand-border/40 pb-6 mb-8 max-w-3xl mx-auto">
+            <button id="play-btn-whatsapp" onclick="switchPlaygroundTab('whatsapp')" class="px-5 py-3 rounded-full font-outfit text-sm font-bold bg-gradient-to-r from-brand-start to-brand-end text-white shadow-brand-glow transition-all duration-300">
+              💬 WhatsApp Parser
+            </button>
+            <button id="play-btn-decoy" onclick="switchPlaygroundTab('decoy')" class="px-5 py-3 rounded-full font-outfit text-sm font-semibold text-brand-muted hover:text-brand-text transition-all duration-300">
+              🔑 Decoy Vault Lock
+            </button>
+            <button id="play-btn-streaks" onclick="switchPlaygroundTab('streaks')" class="px-5 py-3 rounded-full font-outfit text-sm font-semibold text-brand-muted hover:text-brand-text transition-all duration-300">
+              🔥 Promise Streaks
+            </button>
+          </div>
+
+          <!-- TAB 1: WhatsApp Parser Simulator -->
+          <div id="play-panel-whatsapp" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-6">
+              <h3 class="font-outfit font-extrabold text-2xl text-brand-text">How the WhatsApp Chat Parser works</h3>
+              <p class="text-brand-muted leading-relaxed text-sm">
+                When you export a chat log from WhatsApp as a txt archive, it can look messy and hard to read. BtwUs handles parsing locally on your device, turning raw lines into a visual couple feed.
+              </p>
+              <div class="space-y-4">
+                <button onclick="runParserDemo()" class="w-full sm:w-auto px-6 py-3 rounded-full font-outfit font-bold text-sm bg-brand-accent/20 hover:bg-brand-accent/30 text-brand-accent border border-brand-accent/30 transition duration-300 flex items-center justify-center space-x-2">
+                  <span>⚡ Run Parser Demo</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col md:flex-row gap-4 justify-center items-stretch">
+              <!-- Raw Text Terminal -->
+              <div class="flex-1 bg-black/80 border border-brand-border rounded-2xl p-4 font-mono text-[10px] text-zinc-400 space-y-2 h-[280px] overflow-hidden relative">
+                <div class="flex items-center space-x-1.5 border-b border-brand-border pb-2 mb-2">
+                  <div class="w-2.5 h-2.5 rounded-full bg-rose-500"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                  <span class="text-[9px] text-zinc-500 pl-2">whatsapp_chat.txt</span>
+                </div>
+                <div id="raw-log-container" class="space-y-1.5 h-[210px] overflow-y-auto leading-relaxed">
+                  <div class="text-zinc-600">[Idle. Click "Run Parser Demo" above...]</div>
+                </div>
+              </div>
+
+              <!-- Output Chat View -->
+              <div class="flex-1 bg-brand-dark/90 border border-brand-border rounded-2xl p-4 flex flex-col justify-between h-[280px] relative overflow-hidden">
+                <div class="flex items-center justify-between border-b border-brand-border/40 pb-2 mb-2">
+                  <div class="flex items-center space-x-2">
+                    <div class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-xs">❤️</div>
+                    <span class="text-xs font-bold font-outfit">BtwUs Chat Archive</span>
                   </div>
-                  <div class="bg-white p-3 rounded-lg shadow-sm border border-brand-divider max-w-[280px] mx-auto text-left flex items-start space-x-3">
-                    <div class="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent font-bold">💍</div>
-                    <div>
-                      <p class="text-xs font-bold text-brand-text">Engaged!</p>
-                      <p class="text-[10px] text-brand-muted">She said YES under the stars</p>
-                    </div>
-                  </div>
+                  <span id="parser-status-badge" class="text-[9px] font-bold bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded-full">Idle</span>
+                </div>
+                <div id="parsed-bubble-container" class="flex-grow space-y-2 overflow-y-auto text-[11px] py-2">
+                  <div class="text-center text-brand-muted/40 italic py-8">Parsed layout will display here.</div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- TAB 2: Decoy Vault Lock screen simulator -->
+          <div id="play-panel-decoy" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-6">
+              <h3 class="font-outfit font-extrabold text-2xl text-brand-text">Double-Vault Security Demo</h3>
+              <p class="text-brand-muted leading-relaxed text-sm">
+                BtwUs includes a decoy vault feature to protect your privacy under pressure. Entering your master passcode reveals your relationship milestones, while entering a decoy code displays an empty shell.
+              </p>
+              <div class="bg-brand-card/50 border border-brand-border p-4 rounded-xl space-y-2 text-xs">
+                <p class="text-brand-text font-bold">🔐 Simulating credentials:</p>
+                <p class="text-brand-muted">&bull; Master Code: <strong class="text-brand-accent">1234</strong> (Loads Anniversary Archive)</p>
+                <p class="text-brand-muted">&bull; Decoy Code: <strong class="text-brand-accent">9999</strong> (Loads Decoy empty shell)</p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 flex justify-center">
+              <div class="w-[280px] h-[400px] border-4 border-zinc-800 rounded-[32px] bg-black shadow-xl relative overflow-hidden flex flex-col justify-between p-4 text-center ring-2 ring-white/5">
+                
+                <!-- Pin input dots screen -->
+                <div id="pin-screen-container" class="flex-grow flex flex-col justify-between py-6">
+                  <div class="space-y-1">
+                    <div class="w-6 h-6 rounded-full bg-brand-accent/20 mx-auto flex items-center justify-center text-xs text-brand-accent">🔒</div>
+                    <h4 class="text-xs font-bold font-outfit text-white">Enter Vault Passcode</h4>
+                    <p class="text-[9px] text-zinc-500">Test codes: 1234 or 9999</p>
+                  </div>
+
+                  <!-- Dot indicators -->
+                  <div id="pin-dots-row" class="flex justify-center space-x-3 my-4">
+                    <div class="w-3 h-3 rounded-full border border-zinc-700 bg-transparent"></div>
+                    <div class="w-3 h-3 rounded-full border border-zinc-700 bg-transparent"></div>
+                    <div class="w-3 h-3 rounded-full border border-zinc-700 bg-transparent"></div>
+                    <div class="w-3 h-3 rounded-full border border-zinc-700 bg-transparent"></div>
+                  </div>
+
+                  <!-- Lock Screen NumPad -->
+                  <div class="grid grid-cols-3 gap-y-3 gap-x-6 max-w-[180px] mx-auto text-white">
+                    <button onclick="pressPinNum(1)" class="w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-xs font-bold transition">1</button>
+                    <button onclick="pressPinNum(2)" class="w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-xs font-bold transition">2</button>
+                    <button onclick="pressPinNum(3)" class="w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-xs font-bold transition">3</button>
+                    <button onclick="pressPinNum(4)" class="w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-xs font-bold transition">4</button>
+                    <button onclick="pressPinNum(5)" class="w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-xs font-bold transition">5</button>
+                    <button onclick="pressPinNum(6)" class="w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-xs font-bold transition">6</button>
+                    <button onclick="pressPinNum(7)" class="w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-xs font-bold transition">7</button>
+                    <button onclick="pressPinNum(8)" class="w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-xs font-bold transition">8</button>
+                    <button onclick="pressPinNum(9)" class="w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-xs font-bold transition">9</button>
+                    <button onclick="clearPinNum()" class="w-10 h-10 flex items-center justify-center text-[10px] text-zinc-500 font-bold hover:text-white transition">C</button>
+                    <button onclick="pressPinNum(0)" class="w-10 h-10 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-xs font-bold transition">0</button>
+                    <button onclick="resetPinDemo()" class="w-10 h-10 flex items-center justify-center text-[9px] text-brand-accent/80 font-bold hover:text-brand-accent transition">Reset</button>
+                  </div>
+                </div>
+
+                <!-- Unlocked View Master -->
+                <div id="unlocked-master-container" class="hidden flex-grow flex flex-col justify-between py-2 text-left">
+                  <div class="border-b border-brand-border/40 pb-2 flex justify-between items-center">
+                    <span class="text-xs font-black font-outfit text-brand-accent">🌸 Anniversary Archive</span>
+                    <span class="text-[8px] bg-green-500/20 text-green-400 font-bold px-1.5 py-0.5 rounded-full">Secure SQLCipher</span>
+                  </div>
+                  <div class="flex-grow py-3 space-y-2 overflow-y-auto">
+                    <div class="bg-zinc-900/60 p-2 rounded-lg border border-brand-border text-[10px] space-y-1">
+                      <p class="font-bold text-white">❤️ First Date Met</p>
+                      <p class="text-zinc-500">Feb 24, 2026 at The Daily Bean cafe</p>
+                    </div>
+                    <div class="bg-zinc-900/60 p-2 rounded-lg border border-brand-border text-[10px] space-y-1">
+                      <p class="font-bold text-white">💍 Engaged!</p>
+                      <p class="text-zinc-500">June 12, 2026 under the starry night sky</p>
+                    </div>
+                  </div>
+                  <button onclick="resetPinDemo()" class="w-full py-1.5 rounded-lg bg-brand-accent text-white font-outfit font-bold text-[10px] text-center">Lock Vault</button>
+                </div>
+
+                <!-- Unlocked View Decoy -->
+                <div id="unlocked-decoy-container" class="hidden flex-grow flex flex-col justify-between py-2 text-left">
+                  <div class="border-b border-brand-border/40 pb-2 flex justify-between items-center">
+                    <span class="text-xs font-bold text-zinc-400">📓 General Notes</span>
+                    <span class="text-[8px] bg-amber-500/20 text-amber-400 font-bold px-1.5 py-0.5 rounded-full">Decoy Activated</span>
+                  </div>
+                  <div class="flex-grow py-3 flex flex-col items-center justify-center text-center space-y-2">
+                    <span class="text-xl">📭</span>
+                    <p class="text-[10px] text-zinc-500 font-semibold">No journal entries saved yet.</p>
+                  </div>
+                  <button onclick="resetPinDemo()" class="w-full py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-bold text-[10px] text-center">Lock Vault</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: Promise Streaks simulator -->
+          <div id="play-panel-streaks" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-6">
+              <h3 class="font-outfit font-extrabold text-2xl text-brand-text">Streaks & accountability</h3>
+              <p class="text-brand-muted leading-relaxed text-sm">
+                Make commitments fun. Log your daily tasks, and prompt your partner to confirm. When both of you check in, the streak active counter grows with animated visual rewards.
+              </p>
+              <div class="bg-brand-card/50 border border-brand-border p-4 rounded-xl space-y-2 text-xs">
+                <p class="text-brand-text font-bold">💡 Try it now:</p>
+                <p class="text-brand-muted">Click the <strong class="text-brand-accent">Check In</strong> or <strong class="text-brand-accent">Confirm Partner</strong> buttons to verify streaks.</p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col sm:flex-row gap-6 justify-center items-center">
+              
+              <!-- Card 1: Habit 1 -->
+              <div id="streak-card-1" class="w-full max-w-[240px] bg-brand-dark border border-brand-border rounded-2xl p-5 space-y-4 shadow-xl relative overflow-hidden">
+                <div class="flex justify-between items-start">
+                  <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-xs">☕</div>
+                  <span id="streak-badge-1" class="text-[9px] bg-amber-500/20 text-amber-400 font-bold px-2 py-0.5 rounded-full">Pending check-in</span>
+                </div>
+                <div class="space-y-1">
+                  <h4 class="text-xs font-bold text-white font-outfit">Daily Morning Coffee Call</h4>
+                  <p class="text-[10px] text-brand-muted">Talk before start of workdays</p>
+                </div>
+                <div class="flex items-center justify-between border-t border-brand-border/40 pt-3">
+                  <div class="flex items-center space-x-1">
+                    <span class="text-sm">🔥</span>
+                    <span id="streak-count-1" class="text-xs font-black font-outfit text-white">12 days</span>
+                  </div>
+                  <button id="streak-btn-1" onclick="checkInStreak1()" class="px-3.5 py-1.5 rounded-lg bg-brand-accent text-white font-outfit font-bold text-[10px] hover:shadow-brand-glow transition">Check In</button>
+                </div>
+              </div>
+
+              <!-- Card 2: Habit 2 -->
+              <div id="streak-card-2" class="w-full max-w-[240px] bg-brand-dark border border-brand-border rounded-2xl p-5 space-y-4 shadow-xl relative overflow-hidden">
+                <div class="flex justify-between items-start">
+                  <div class="w-8 h-8 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-xs">🍿</div>
+                  <span id="streak-badge-2" class="text-[9px] bg-rose-500/20 text-brand-accent font-bold px-2 py-0.5 rounded-full">Pending confirmation</span>
+                </div>
+                <div class="space-y-1">
+                  <h4 class="text-xs font-bold text-white font-outfit">Weekly Date Night</h4>
+                  <p class="text-[10px] text-brand-muted">Saturday date dinner at 7 PM</p>
+                </div>
+                <div class="flex items-center justify-between border-t border-brand-border/40 pt-3">
+                  <div class="flex items-center space-x-1">
+                    <span class="text-sm">🔥</span>
+                    <span id="streak-count-2" class="text-xs font-black font-outfit text-white">4 weeks</span>
+                  </div>
+                  <button id="streak-btn-2" onclick="checkInStreak2()" class="px-3.5 py-1.5 rounded-lg bg-brand-accent/20 text-brand-accent border border-brand-accent/30 font-outfit font-bold text-[10px] hover:bg-brand-accent hover:text-white transition">Confirm Partner</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Security Card Section -->
-    <section id="security" class="py-24 px-4 bg-white border-y border-brand-divider">
-      <div class="max-w-6xl mx-auto space-y-16">
-        <div class="text-center space-y-4 max-w-xl mx-auto">
-          <h2 class="font-outfit font-black text-3xl md:text-4xl text-brand-text tracking-tight">Built on Local-First Encryption</h2>
-          <p class="text-brand-muted">Hardware-level protection designed to shield intimate moments.</p>
+    <!-- Deep-Dive Security & Hardware Section -->
+    <section id="security" class="py-24 px-6 bg-brand-dark/20 border-y border-brand-border/40 relative">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Visual Cryptographic Stack -->
+        <div class="lg:col-span-6 relative flex justify-center order-last lg:order-first">
+          <!-- Ambient glow -->
+          <div class="absolute w-80 h-80 rounded-full bg-brand-accent/10 blur-[80px] pointer-events-none"></div>
+          
+          <div class="w-full max-w-[400px] space-y-4">
+            <!-- Layers -->
+            <div class="bg-brand-card border border-brand-border p-5 rounded-2xl shadow-xl flex items-center space-x-4 transform translate-y-3 scale-95 opacity-60">
+              <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent font-bold">📲</div>
+              <div>
+                <h4 class="text-sm font-bold text-white">1. WhatsApp Raw Chat Export</h4>
+                <p class="text-xs text-brand-muted">Message histories exported locally via .txt</p>
+              </div>
+            </div>
+            
+            <div class="bg-brand-card border border-brand-accent/30 p-5 rounded-2xl shadow-brand-glow flex items-center space-x-4 relative z-10">
+              <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">⚙️</div>
+              <div>
+                <h4 class="text-sm font-bold text-white">2. SQLCipher Local Engine</h4>
+                <p class="text-xs text-brand-muted">Raw logs parsed and written directly into SQLCipher database</p>
+              </div>
+              <span class="absolute top-2 right-2 text-[9px] font-black bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">AES-256</span>
+            </div>
+
+            <div class="bg-brand-card border border-brand-border p-5 rounded-2xl shadow-xl flex items-center space-x-4 transform -translate-y-3 scale-95 opacity-60">
+              <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent font-bold">🔑</div>
+              <div>
+                <h4 class="text-sm font-bold text-white">3. Local Hardware Auth</h4>
+                <p class="text-xs text-brand-muted">Database key generated via PBKDF2 locked by biometric API</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Copy Column -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-bold text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full uppercase tracking-wider font-outfit">Offline Architecture</span>
+          <h2 class="font-outfit font-black text-3xl md:text-4xl text-brand-text tracking-tight">Your data. Your processor.</h2>
+          <p class="text-brand-muted leading-relaxed">
+            Most chat and journaling platforms store your private relationships on cloud servers, exposing them to hacks, data profiling, or company failures. BtwUs is built offline-first.
+          </p>
+          <p class="text-brand-muted leading-relaxed">
+            When you import a chat or snap a photo, processing happens exclusively inside your phone's sandbox. SQLCipher secures database files under hardware-level authentication. No external tracking, no accounts needed.
+          </p>
           
-          <div class="bg-brand-background border border-brand-divider p-8 rounded-2xl space-y-4 hover:border-brand-accent transition duration-300">
-            <div class="w-10 h-10 rounded-lg bg-brand-accent/15 flex items-center justify-center text-brand-accent">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-xl border border-brand-border bg-brand-card/40 space-y-2">
+              <h4 class="font-outfit font-bold text-white text-sm">🔒 SQLCipher Encryption</h4>
+              <p class="text-xs text-brand-muted">256-bit AES database encryption handles storage tables locally.</p>
             </div>
-            <h3 class="font-outfit font-extrabold text-xl text-brand-text">AES-256 Encryption</h3>
-            <p class="text-brand-muted text-sm leading-relaxed">
-              All stored textual records, commitments, and tags are compiled in a local SQLite file which is directly encrypted via SQLCipher using a key derived via PBKDF2 algorithm.
-            </p>
-          </div>
-
-          <div class="bg-brand-background border border-brand-divider p-8 rounded-2xl space-y-4 hover:border-brand-accent transition duration-300">
-            <div class="w-10 h-10 rounded-lg bg-brand-accent/15 flex items-center justify-center text-brand-accent">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" /></svg>
+            <div class="p-4 rounded-xl border border-brand-border bg-brand-card/40 space-y-2">
+              <h4 class="font-outfit font-bold text-white text-sm">🧬 Biometric Shield</h4>
+              <p class="text-xs text-brand-muted">Key unlock routines hook into Android Biometric Manager security hooks.</p>
             </div>
-            <h3 class="font-outfit font-extrabold text-xl text-brand-text">Biometric Authorization</h3>
-            <p class="text-brand-muted text-sm leading-relaxed">
-              Secure the application with Android local biometric APIs (Fingerprint or Face Unlock). Your biometrics check is handled securely by the OS kernel, keeping it invisible to the application.
-            </p>
           </div>
-
-          <div class="bg-brand-background border border-brand-divider p-8 rounded-2xl space-y-4 hover:border-brand-accent transition duration-300">
-            <div class="w-10 h-10 rounded-lg bg-brand-accent/15 flex items-center justify-center text-brand-accent">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" /></svg>
-            </div>
-            <h3 class="font-outfit font-extrabold text-xl text-brand-text">Decoy Vault (Plus/Premium)</h3>
-            <p class="text-brand-muted text-sm leading-relaxed">
-              Configure a fake secondary passcode that redirects the application to a blank, normal decoy vault. Ensures complete peace of mind if you are pressured to unlock your application.
-            </p>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Pricing Cards -->
-    <section id="pricing" class="py-24 px-4 bg-brand-background">
+    <!-- Pricing Grid Section -->
+    <section id="pricing" class="py-24 px-6 bg-brand-dark/20 relative">
       <div class="max-w-6xl mx-auto space-y-16">
         <div class="text-center space-y-4 max-w-xl mx-auto">
-          <h2 class="font-outfit font-black text-3xl md:text-5xl text-brand-text tracking-tight">Flexible, Transparent Pricing</h2>
-          <p class="text-brand-muted text-lg">Support local-first app development. No recurring cloud fees.</p>
-          
-          <!-- Toggle Button (visuals) -->
-          <div class="inline-flex items-center space-x-2 bg-white px-2 py-1.5 rounded-full border border-brand-divider shadow-sm mt-4">
-            <span class="text-xs font-bold text-brand-text px-3 py-1 bg-brand-accent/15 text-brand-accent rounded-full">India (INR)</span>
-            <span class="text-xs text-brand-muted px-2">Regional Pricing Applied</span>
-          </div>
+          <span class="text-xs font-bold text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full uppercase tracking-wider font-outfit">Simple Pricing</span>
+          <h2 class="font-outfit font-black text-3xl md:text-5xl text-brand-text tracking-tight">Support Local Devs</h2>
+          <p class="text-brand-muted text-base">Keep our work independent. No recurrent cloud overheads.</p>
         </div>
 
-        <!-- Cards Grid -->
+        <!-- Cards Layout -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto">
-          
-          <!-- Free Tier -->
-          <div class="bg-white border border-brand-divider rounded-2xl p-8 flex flex-col justify-between hover:border-brand-accent transition duration-300">
+          <!-- Tier 1: Free -->
+          <div class="bg-brand-card/40 border border-brand-border hover:border-brand-accent/20 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1">
             <div class="space-y-6">
               <h3 class="font-outfit font-extrabold text-lg text-brand-muted uppercase tracking-wider">Free Archive</h3>
               <div class="space-y-1">
                 <span class="font-outfit font-black text-4xl text-brand-text">₹0</span>
-                <span class="text-sm text-brand-muted">/ Free Forever</span>
+                <span class="text-xs text-brand-muted">/ Free Forever</span>
               </div>
-              <p class="text-sm text-brand-muted leading-relaxed">Perfect for getting started and importing chat highlights.</p>
-              <div class="border-t border-brand-divider my-4"></div>
-              <ul class="space-y-3 text-sm text-brand-text/90">
+              <p class="text-xs text-brand-muted leading-relaxed">Perfect to try the parser and capture key highlights.</p>
+              <div class="border-t border-brand-border/40 my-4"></div>
+              <ul class="space-y-3 text-xs text-brand-muted">
                 <li class="flex items-center space-x-2.5">
-                  <span class="text-green-500 font-bold">✓</span>
-                  <span>Up to 1000 Memories</span>
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>Up to 1,000 memories saved</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
-                  <span class="text-green-500 font-bold">✓</span>
-                  <span>WhatsApp Chat Import (Local Parser)</span>
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>WhatsApp Chat Parser (Local)</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
-                  <span class="text-green-500 font-bold">✓</span>
-                  <span>Offline Keyword Search</span>
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>Keyword search & tags filter</span>
                 </li>
               </ul>
             </div>
-            <a href="#download" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-bold bg-brand-background text-brand-text hover:bg-brand-accent hover:text-white transition btn-micro-bounce">Get Started</a>
+            <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-bold text-sm bg-brand-border text-brand-text hover:bg-brand-accent hover:text-white transition duration-300">Download BtwUs</a>
           </div>
 
-          <!-- Plus Tier (Popular) -->
-          <div class="bg-white border-2 border-brand-accent rounded-2xl p-8 flex flex-col justify-between relative transform lg:-translate-y-2 shadow-brand-soft hover:shadow-brand-glow transition duration-300">
-            <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-brand-accent text-white text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-sm">Popular Choice</div>
+          <!-- Tier 2: Plus (Featured) -->
+          <div class="bg-brand-card/60 border-2 border-brand-accent rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative shadow-brand-glow transform md:-translate-y-2 hover:-translate-y-3">
+            <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-brand-accent text-white text-[9px] font-black uppercase tracking-widest px-4 py-1 rounded-full">Popular</div>
             <div class="space-y-6">
-              <h3 class="font-outfit font-extrabold text-lg text-brand-accent uppercase tracking-wider">Plus tier</h3>
+              <h3 class="font-outfit font-extrabold text-lg text-brand-accent uppercase tracking-wider">Plus Archive</h3>
               <div class="space-y-1">
                 <span class="font-outfit font-black text-4xl text-brand-text">₹49</span>
-                <span class="text-sm text-brand-muted">/ month</span>
+                <span class="text-xs text-brand-muted">/ Month</span>
               </div>
-              <p class="text-sm text-brand-muted leading-relaxed">Full access for deep journaling and on-device AI search features.</p>
-              <div class="border-t border-brand-divider my-4"></div>
-              <ul class="space-y-3 text-sm text-brand-text/90">
+              <p class="text-xs text-brand-muted leading-relaxed">Full access to journaling, decoy locks, and streak habits.</p>
+              <div class="border-t border-brand-border/40 my-4"></div>
+              <ul class="space-y-3 text-xs text-brand-text/90">
                 <li class="flex items-center space-x-2.5">
                   <span class="text-brand-accent font-bold">✓</span>
-                  <span class="font-semibold text-brand-text">Unlimited Memories</span>
+                  <span class="font-semibold text-white">Unlimited Memory items</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
                   <span class="text-brand-accent font-bold">✓</span>
-                  <span>Local AI Smart Search</span>
+                  <span>Decoy lock code security</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
                   <span class="text-brand-accent font-bold">✓</span>
-                  <span>Hindi & Regional Language support</span>
+                  <span>Unlimited Habit trackers</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
                   <span class="text-brand-accent font-bold">✓</span>
-                  <span>Decoy Vault Lock protection</span>
+                  <span>Hindi & Regional language support</span>
                 </li>
               </ul>
             </div>
-            <a href="#download" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-black bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-brand-glow transition btn-micro-bounce">Start 7-Day Free Trial</a>
+            <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-black text-sm bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-brand-glow transition">Start Free Trial</a>
           </div>
 
-          <!-- Premium Tier -->
-          <div class="bg-white border border-brand-divider rounded-2xl p-8 flex flex-col justify-between hover:border-brand-accent transition duration-300">
+          <!-- Tier 3: Premium -->
+          <div class="bg-brand-card/40 border border-brand-border hover:border-brand-accent/20 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1">
             <div class="space-y-6">
               <h3 class="font-outfit font-extrabold text-lg text-brand-muted uppercase tracking-wider">Premium Vault</h3>
               <div class="space-y-1">
                 <span class="font-outfit font-black text-4xl text-brand-text">₹99</span>
-                <span class="text-sm text-brand-muted">/ month</span>
-                <p class="text-xs text-brand-accent font-bold pt-1">Or ₹1,499 Lifetime Purchase</p>
+                <span class="text-xs text-brand-muted">/ Month</span>
+                <p class="text-[10px] text-brand-accent font-bold pt-1">Or ₹1,499 Lifetime Purchase</p>
               </div>
-              <p class="text-sm text-brand-muted leading-relaxed">Complete custom personalization, advanced relationship statistics, and offline local sync.</p>
-              <div class="border-t border-brand-divider my-4"></div>
-              <ul class="space-y-3 text-sm text-brand-text/90">
+              <p class="text-xs text-brand-muted leading-relaxed">Personalization options, local WiFi data syncing, and insights charts.</p>
+              <div class="border-t border-brand-border/40 my-4"></div>
+              <ul class="space-y-3 text-xs text-brand-muted">
                 <li class="flex items-center space-x-2.5">
-                  <span class="text-green-500 font-bold">✓</span>
-                  <span>Everything in Plus plan</span>
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>All features in Plus tier</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
-                  <span class="text-green-500 font-bold">✓</span>
-                  <span>10+ Custom App Themes & Colors</span>
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>10+ custom Coral Bloom themes</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
-                  <span class="text-green-500 font-bold">✓</span>
-                  <span>Advanced Relationship Insights Chart</span>
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>Local WiFi Sync between partners</span>
                 </li>
                 <li class="flex items-center space-x-2.5">
-                  <span class="text-green-500 font-bold">✓</span>
-                  <span>Secure Local Wi-Fi Sync between partners</span>
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>Detailed insights chart dashboard</span>
                 </li>
               </ul>
             </div>
-            <a href="#download" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-bold bg-brand-background text-brand-text hover:bg-brand-accent hover:text-white transition btn-micro-bounce">Go Premium</a>
+            <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="mt-8 block w-full py-3 rounded-full text-center font-outfit font-bold text-sm bg-brand-border text-brand-text hover:bg-brand-accent hover:text-white transition duration-300">Upgrade to Premium</a>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Collapsible FAQ Section -->
-    <section id="faqs" class="py-24 px-4 bg-white border-y border-brand-divider">
+    <!-- FAQs Section -->
+    <section id="faqs" class="py-24 px-6 bg-brand-dark/20 border-t border-brand-border/40">
       <div class="max-w-4xl mx-auto space-y-12">
         <div class="text-center space-y-4">
-          <h2 class="font-outfit font-black text-3xl md:text-4xl text-brand-text">Frequently Asked Questions</h2>
-          <p class="text-brand-muted">Everything you need to know about our local relationship space.</p>
+          <span class="text-xs font-bold text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full uppercase tracking-wider font-outfit">Faqs</span>
+          <h2 class="font-outfit font-black text-3xl md:text-4xl text-brand-text">Common Questions</h2>
+          <p class="text-brand-muted text-sm">Everything you need to know about our secure relationship space.</p>
         </div>
 
-        <!-- FAQ Accordions -->
         <div class="space-y-4">
-          
-          <!-- Accordion Item 1 (WCAG 4.1.2) -->
-          <div class="border border-brand-divider rounded-xl overflow-hidden transition hover:border-brand-accent">
-            <button id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1" class="w-full text-left p-6 font-outfit font-bold text-lg text-brand-text flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 rounded-xl">
-              <span>Is my data really kept offline?</span>
-              <span class="text-brand-accent transition-transform duration-300 transform font-light text-2xl" aria-hidden="true">+</span>
+          <!-- Accordion 1 -->
+          <div class="border border-brand-border rounded-2xl overflow-hidden bg-brand-card/25 hover:border-brand-accent/40 transition duration-300">
+            <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full text-left p-6 font-outfit font-bold text-base text-brand-text flex items-center justify-between focus:outline-none">
+              <span>Is my relationship data kept offline?</span>
+              <span class="text-brand-accent transition-transform duration-300 text-xl font-light">+</span>
             </button>
-            <div id="faq-panel-1" role="region" aria-labelledby="faq-btn-1" aria-hidden="true" class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+            <div class="max-h-0 overflow-hidden transition-all duration-300 bg-brand-dark/40">
               <p class="px-6 pb-6 text-sm text-brand-muted leading-relaxed">
-                Yes, absolutely. BtwUs is built entirely without cloud databases or registration servers. All text logs, photos, promise streaks, and imported WhatsApp messages are stored only within the private sandbox on your phone.
+                Yes. BtwUs is built entirely without cloud storage databases or registration servers. All text logs, photos, promise streaks, and imported WhatsApp messages are stored only within the private app sandbox on your physical device.
               </p>
             </div>
           </div>
 
-          <!-- Accordion Item 2 -->
-          <div class="border border-brand-divider rounded-xl overflow-hidden transition hover:border-brand-accent">
-            <button id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2" class="w-full text-left p-6 font-outfit font-bold text-lg text-brand-text flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 rounded-xl">
+          <!-- Accordion 2 -->
+          <div class="border border-brand-border rounded-2xl overflow-hidden bg-brand-card/25 hover:border-brand-accent/40 transition duration-300">
+            <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full text-left p-6 font-outfit font-bold text-base text-brand-text flex items-center justify-between focus:outline-none">
               <span>What happens if I lose my phone?</span>
-              <span class="text-brand-accent transition-transform duration-300 transform font-light text-2xl" aria-hidden="true">+</span>
+              <span class="text-brand-accent transition-transform duration-300 text-xl font-light">+</span>
             </button>
-            <div id="faq-panel-2" role="region" aria-labelledby="faq-btn-2" aria-hidden="true" class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+            <div class="max-h-0 overflow-hidden transition-all duration-300 bg-brand-dark/40">
               <p class="px-6 pb-6 text-sm text-brand-muted leading-relaxed">
-                Because your data is offline-only, if you lose your phone or delete the app cache without making a backup, your files cannot be retrieved. We recommend using the built-in backup exporter in Settings to export a secure `.btwus` backup archive file to a secure place.
+                Since your database is offline-only, if you lose your phone or delete the app cache without making a backup, your files cannot be retrieved. We recommend using the built-in backup exporter in Settings to export a secure, encrypted `.btwus` backup file to a secure place.
               </p>
             </div>
           </div>
 
-          <!-- Accordion Item 3 -->
-          <div class="border border-brand-divider rounded-xl overflow-hidden transition hover:border-brand-accent">
-            <button id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3" class="w-full text-left p-6 font-outfit font-bold text-lg text-brand-text flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 rounded-xl">
-              <span>How does the WhatsApp import work?</span>
-              <span class="text-brand-accent transition-transform duration-300 transform font-light text-2xl" aria-hidden="true">+</span>
+          <!-- Accordion 3 -->
+          <div class="border border-brand-border rounded-2xl overflow-hidden bg-brand-card/25 hover:border-brand-accent/40 transition duration-300">
+            <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full text-left p-6 font-outfit font-bold text-base text-brand-text flex items-center justify-between focus:outline-none">
+              <span>How does local WhatsApp parser import work?</span>
+              <span class="text-brand-accent transition-transform duration-300 text-xl font-light">+</span>
             </button>
-            <div id="faq-panel-3" role="region" aria-labelledby="faq-btn-3" aria-hidden="true" class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+            <div class="max-h-0 overflow-hidden transition-all duration-300 bg-brand-dark/40">
               <p class="px-6 pb-6 text-sm text-brand-muted leading-relaxed">
-                Inside WhatsApp, you can export a chat log as a `.txt` file (with or without media). You then open this file in BtwUs. The app parses the text log on-device, categorizes message threads, flags disputes, sweet notes, or promises, and renders it inside a searchable memory timeline.
+                In WhatsApp, you can export a chat log as a `.txt` file. You then open this file in BtwUs. The app parses the file on-device, categorizes message threads, tags disputes or sweet notes, and adds them directly inside your private memory timeline.
               </p>
             </div>
           </div>
-
-          <!-- Accordion Item 4 -->
-          <div class="border border-brand-divider rounded-xl overflow-hidden transition hover:border-brand-accent">
-            <button id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4" class="w-full text-left p-6 font-outfit font-bold text-lg text-brand-text flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 rounded-xl">
-              <span>Does on-device AI drain my battery?</span>
-              <span class="text-brand-accent transition-transform duration-300 transform font-light text-2xl" aria-hidden="true">+</span>
-            </button>
-            <div id="faq-panel-4" role="region" aria-labelledby="faq-btn-4" aria-hidden="true" class="faq-content max-h-0 overflow-hidden transition-all duration-300">
-              <p class="px-6 pb-6 text-sm text-brand-muted leading-relaxed">
-                No. The Google ML Kit model runs locally during imports or search updates and is optimized to run efficiently using mobile hardware accelerators. It does not run constantly in the background.
-              </p>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Download Banner -->
-    <section id="download" class="py-24 px-4 bg-gradient-to-br from-brand-start via-brand-accent to-brand-end text-white text-center relative overflow-hidden">
+    <!-- Download CTA Banner -->
+    <section id="download-banner" class="py-24 px-6 bg-gradient-to-br from-brand-start via-brand-accent to-brand-end text-white text-center relative overflow-hidden">
       <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
       <div class="relative z-10 max-w-3xl mx-auto space-y-8">
         <h2 class="font-outfit font-black text-4xl md:text-5xl tracking-tight leading-[1.1]">Download BtwUs & Start Archiving</h2>
@@ -493,43 +842,371 @@
           Set up your secure relationship space in seconds. Keep your memories safe from the public cloud.
         </p>
         
-        <!-- Download Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <!-- Play Store Link -->
-          <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-full font-outfit font-black text-lg bg-white text-brand-accent hover:shadow-brand-glow transition transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2 btn-micro-bounce">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3.25 1.413v21.174c0 .546.429.986.97.986.196 0 .386-.057.549-.168l17.753-10.587c.304-.182.478-.506.478-.853s-.174-.672-.478-.853L4.769 1.581A.978.978 0 004.22 1.413c-.541 0-.97.44-.97.986z"/>
-            </svg>
-            <span>Get BtwUs on Google Play</span>
+        <!-- Google Play Store Only Badge -->
+        <div class="flex justify-center">
+          <a href="https://play.google.com/store/apps/details?id=com.sooubh.btwus" target="_blank" rel="noopener noreferrer" class="hover:scale-102 transition duration-300 inline-block">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="h-20">
           </a>
         </div>
-        <p class="text-xs text-white/70">Available on the Google Play Store for Android.</p>
+        <p class="text-xs text-white/70">Requires Android 8.0 or higher. No registration necessary.</p>
       </div>
     </section>
 
   </main>
 
   <!-- Footer -->
-  <footer class="bg-white border-t border-brand-divider py-12 text-center text-sm text-brand-muted">
-    <div class="max-w-6xl mx-auto px-4 space-y-6">
+  <footer class="bg-brand-dark border-t border-brand-border py-12 text-center text-sm text-brand-muted">
+    <div class="max-w-6xl mx-auto px-6 space-y-6">
       <div class="flex items-center justify-center space-x-2">
         <span class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent text-xs" aria-hidden="true">❤️</span>
         <span class="font-outfit font-bold text-brand-text text-lg">BtwUs</span>
       </div>
-      <div class="flex flex-wrap justify-center gap-6 text-brand-muted text-xs">
-        <a href="#features" class="hover:text-brand-accent transition">Features</a>
-        <a href="#security" class="hover:text-brand-accent transition">Security Architecture</a>
-        <a href="#pricing" class="hover:text-brand-accent transition">Pricing Grid</a>
-        <a href="privacy.html" class="hover:text-brand-accent transition font-bold text-brand-accent">Privacy Policy & Terms</a>
+      <div class="flex flex-wrap justify-center gap-6 text-xs text-brand-muted">
+        <a href="#features" class="hover:text-brand-accent transition-colors">Features</a>
+        <a href="#interactive-playground" class="hover:text-brand-accent transition-colors">Live Simulators</a>
+        <a href="#security" class="hover:text-brand-accent transition-colors">Security Architecture</a>
+        <a href="#pricing" class="hover:text-brand-accent transition-colors">Pricing Grid</a>
+        <a href="privacy.html" class="hover:text-brand-accent transition-colors font-bold text-brand-accent">Privacy Policy</a>
       </div>
-      <div class="border-t border-brand-divider pt-6 text-xs space-y-2">
+      <div class="border-t border-brand-border/40 pt-6 text-xs space-y-2">
         <p>&copy; 2026 BtwUs Relationship Archive. All rights reserved.</p>
-        <p>Built offline-first. Created by Sourabh (sourabh3527@gmail.com).</p>
+        <p>Built offline-first. Created by Sourabh (<a href="mailto:sourabh3527@gmail.com" class="hover:underline">sourabh3527@gmail.com</a>).</p>
       </div>
     </div>
   </footer>
 
-  <!-- Modular Script Injection -->
-  <script type="module" src="script.js"></script>
+  <!-- Vanilla Scripts -->
+  <script>
+    // 1. Mobile Menu Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+          mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          mobileMenu.classList.add('hidden');
+          menuIcon.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close menu when clicking links
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // 2. Header scroll style changes
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      if (window.scrollY > 20) {
+        header.classList.remove('bg-brand-background/80');
+        header.classList.add('bg-brand-dark/95', 'shadow-lg');
+      } else {
+        header.classList.remove('bg-brand-dark/95', 'shadow-lg');
+        header.classList.add('bg-brand-background/80');
+      }
+    });
+
+    // 3. Hero phone mockup screenshot cycler
+    let activeScreenshotIndex = 0;
+    const totalScreenshots = 5;
+
+    function setHeroScreenshot(index) {
+      activeScreenshotIndex = index;
+      for (let i = 0; i < totalScreenshots; i++) {
+        const img = document.getElementById(`hero-screenshot-${i}`);
+        if (img) {
+          if (i === index) {
+            img.classList.remove('opacity-0', 'z-20');
+            img.classList.add('opacity-100', 'z-30');
+          } else {
+            img.classList.remove('opacity-100', 'z-30');
+            img.classList.add('opacity-0', 'z-20');
+          }
+        }
+      }
+    }
+
+    // Auto rotate slides every 5 seconds unless hovered
+    let screenshotInterval = setInterval(() => {
+      let nextIndex = (activeScreenshotIndex + 1) % totalScreenshots;
+      setHeroScreenshot(nextIndex);
+    }, 5000);
+
+    const featureSection = document.getElementById('features');
+    if (featureSection) {
+      featureSection.addEventListener('mouseenter', () => {
+        clearInterval(screenshotInterval);
+      });
+    }
+
+    // 4. FAQ Accordions
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const indicator = button.querySelector('span:last-child');
+      
+      const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+      // Close all FAQs
+      document.querySelectorAll('#faqs button').forEach(btn => {
+        btn.nextElementSibling.style.maxHeight = '0px';
+        btn.querySelector('span:last-child').textContent = '+';
+        btn.querySelector('span:last-child').style.transform = 'rotate(0deg)';
+        btn.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        indicator.textContent = '−';
+        indicator.style.transform = 'rotate(180deg)';
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // 5. Playground Tabs Switcher
+    function switchPlaygroundTab(tabName) {
+      // Buttons reset
+      const tabs = ['whatsapp', 'decoy', 'streaks'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`play-btn-${t}`);
+        const panel = document.getElementById(`play-panel-${t}`);
+        if (btn && panel) {
+          if (t === tabName) {
+            btn.className = "px-5 py-3 rounded-full font-outfit text-sm font-bold bg-gradient-to-r from-brand-start to-brand-end text-white shadow-brand-glow transition-all duration-300";
+            panel.classList.remove('hidden');
+            if (t === 'whatsapp') panel.classList.add('grid');
+            if (t === 'decoy') panel.classList.add('grid');
+            if (t === 'streaks') panel.classList.add('grid');
+          } else {
+            btn.className = "px-5 py-3 rounded-full font-outfit text-sm font-semibold text-brand-muted hover:text-brand-text transition-all duration-300";
+            panel.classList.add('hidden');
+            panel.classList.remove('grid');
+          }
+        }
+      });
+    }
+
+    // 6. WhatsApp Parser Simulator Log Typing Demo
+    const sampleChatData = [
+      { sender: 'Her', time: '14:23', text: 'Hey sweetie! Are you free tonight?' },
+      { sender: 'Me', time: '14:24', text: 'Hey! Yes, I am. What do you have in mind?' },
+      { sender: 'Her', time: '14:25', text: 'Let\'s visit that new Italian restaurant down the street! 🍝' },
+      { sender: 'Me', time: '14:27', text: 'Sounds delicious! I\'ll book a table for 8 PM. 💖' },
+      { sender: 'Her', time: '14:27', text: 'Yay! Can\'t wait! Love you!' }
+    ];
+
+    let parserRunning = false;
+    function runParserDemo() {
+      if (parserRunning) return;
+      parserRunning = true;
+
+      const rawContainer = document.getElementById('raw-log-container');
+      const parsedContainer = document.getElementById('parsed-bubble-container');
+      const statusBadge = document.getElementById('parser-status-badge');
+
+      rawContainer.innerHTML = '';
+      parsedContainer.innerHTML = '';
+      statusBadge.textContent = 'Parsing...';
+      statusBadge.className = 'text-[9px] font-bold bg-brand-accent/20 text-brand-accent px-2 py-0.5 rounded-full animate-pulse';
+
+      let currentLine = 0;
+
+      function typeLine() {
+        if (currentLine < sampleChatData.length) {
+          const item = sampleChatData[currentLine];
+          const rawText = `[24/02/2026, ${item.time}:00] ${item.sender}: ${item.text}`;
+          
+          // Append raw terminal line
+          const lineDiv = document.createElement('div');
+          lineDiv.className = 'text-green-400 border-r-2 border-green-400 w-fit whitespace-nowrap overflow-hidden animate-pulse';
+          lineDiv.style.animation = 'none';
+          lineDiv.textContent = rawText;
+          rawContainer.appendChild(lineDiv);
+          rawContainer.scrollTop = rawContainer.scrollHeight;
+
+          // Append parsed visual bubble
+          setTimeout(() => {
+            lineDiv.classList.remove('border-r-2', 'border-green-400', 'animate-pulse');
+            lineDiv.className = 'text-zinc-400';
+            
+            const bubbleWrap = document.createElement('div');
+            bubbleWrap.className = 'w-full flex ' + (item.sender === 'Her' ? 'justify-start' : 'justify-end') + ' animate-fade-in duration-300';
+            
+            const bubble = document.createElement('div');
+            if (item.sender === 'Her') {
+              bubble.className = 'bg-brand-card border border-brand-border text-white p-2.5 rounded-2xl rounded-tl-none max-w-[80%] text-left space-y-1 shadow';
+              bubble.innerHTML = `<span class="text-[9px] font-bold text-brand-accent">Her &bull; ${item.time}</span><p>${item.text}</p>`;
+            } else {
+              bubble.className = 'bg-gradient-to-tr from-brand-start to-brand-accent text-white p-2.5 rounded-2xl rounded-tr-none max-w-[80%] text-right space-y-1 shadow-brand-glow';
+              bubble.innerHTML = `<span class="text-[9px] font-bold text-white/80">Me &bull; ${item.time}</span><p>${item.text}</p>`;
+            }
+            
+            bubbleWrap.appendChild(bubble);
+            parsedContainer.appendChild(bubbleWrap);
+            parsedContainer.scrollTop = parsedContainer.scrollHeight;
+
+            currentLine++;
+            setTimeout(typeLine, 1200);
+          }, 800);
+        } else {
+          // Parsing complete
+          statusBadge.textContent = '100% Encrypted & Parsed';
+          statusBadge.className = 'text-[9px] font-bold bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full';
+          
+          // Append final AI classifier tag
+          const aiTag = document.createElement('div');
+          aiTag.className = 'bg-brand-card border border-emerald-500/30 p-2.5 rounded-xl text-left space-y-1 mt-4 animate-bounce';
+          aiTag.innerHTML = `
+            <div class="flex items-center space-x-1">
+              <span class="text-xs">🤖</span>
+              <span class="text-[10px] font-bold text-emerald-400 font-outfit uppercase">Local AI Sentiment Flagged</span>
+            </div>
+            <p class="text-[10px] text-brand-muted">Timeline Milestone Detected: <strong class="text-white">Date Night (Italian Restaurant, 8:00 PM)</strong></p>
+          `;
+          parsedContainer.appendChild(aiTag);
+          parsedContainer.scrollTop = parsedContainer.scrollHeight;
+          parserRunning = false;
+        }
+      }
+
+      typeLine();
+    }
+
+    // 7. Decoy Vault Passcode lock simulator
+    let pinCode = '';
+    const pinDots = document.getElementById('pin-dots-row').children;
+
+    function pressPinNum(num) {
+      if (pinCode.length >= 4) return;
+      
+      pinCode += num;
+      updatePinDots();
+
+      if (pinCode.length === 4) {
+        setTimeout(validatePinCode, 300);
+      }
+    }
+
+    function updatePinDots() {
+      for (let i = 0; i < 4; i++) {
+        if (i < pinCode.length) {
+          pinDots[i].className = "w-3 h-3 rounded-full bg-brand-accent border border-brand-accent shadow-brand-glow";
+        } else {
+          pinDots[i].className = "w-3 h-3 rounded-full border border-zinc-700 bg-transparent";
+        }
+      }
+    }
+
+    function clearPinNum() {
+      if (pinCode.length === 0) return;
+      pinCode = pinCode.slice(0, -1);
+      updatePinDots();
+    }
+
+    function validatePinCode() {
+      const pinContainer = document.getElementById('pin-screen-container');
+      const masterContainer = document.getElementById('unlocked-master-container');
+      const decoyContainer = document.getElementById('unlocked-decoy-container');
+
+      if (pinCode === '1234') {
+        // Unlock Master
+        pinContainer.classList.add('hidden');
+        masterContainer.classList.remove('hidden');
+      } else if (pinCode === '9999') {
+        // Unlock Decoy
+        pinContainer.classList.add('hidden');
+        decoyContainer.classList.remove('hidden');
+      } else {
+        // Shake feedback on error
+        const numpadOuter = document.getElementById('pin-screen-container');
+        numpadOuter.classList.add('animate-shake');
+        setTimeout(() => {
+          numpadOuter.classList.remove('animate-shake');
+          pinCode = '';
+          updatePinDots();
+        }, 500);
+      }
+    }
+
+    // Initialize check-in buttons handlers
+    function resetPinDemo() {
+      pinCode = '';
+      updatePinDots();
+      document.getElementById('pin-screen-container').classList.remove('hidden');
+      document.getElementById('unlocked-master-container').classList.add('hidden');
+      document.getElementById('unlocked-decoy-container').classList.add('hidden');
+    }
+
+    // 8. Promise Streaks Tracker Demo + Confetti
+    function createConfetti(element) {
+      const colors = ['#FF4D7D', '#FF5C8A', '#FF8C6B', '#FFF5F7', '#FFD03A'];
+      const rect = element.getBoundingClientRect();
+      const parent = element.parentNode;
+
+      for (let i = 0; i < 15; i++) {
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Random layout offsets
+        c.style.left = `${Math.random() * 80 + 10}%`;
+        c.style.top = '10%';
+        c.style.animationDelay = `${Math.random() * 0.2}s`;
+        
+        parent.appendChild(c);
+        
+        // Auto remove
+        setTimeout(() => {
+          c.remove();
+        }, 1500);
+      }
+    }
+
+    function checkInStreak1() {
+      const card = document.getElementById('streak-card-1');
+      const badge = document.getElementById('streak-badge-1');
+      const count = document.getElementById('streak-count-1');
+      const btn = document.getElementById('streak-btn-1');
+
+      if (btn.textContent === 'Checked In') return;
+
+      badge.textContent = 'Completed Today';
+      badge.className = 'text-[9px] bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded-full';
+      count.textContent = '13 days';
+      btn.textContent = 'Checked In';
+      btn.className = 'px-3.5 py-1.5 rounded-lg bg-zinc-800 text-zinc-500 font-outfit font-bold text-[10px] cursor-default';
+      
+      createConfetti(card);
+    }
+
+    function checkInStreak2() {
+      const card = document.getElementById('streak-card-2');
+      const badge = document.getElementById('streak-badge-2');
+      const count = document.getElementById('streak-count-2');
+      const btn = document.getElementById('streak-btn-2');
+
+      if (btn.textContent === 'Completed') return;
+
+      badge.textContent = 'Streak Active';
+      badge.className = 'text-[9px] bg-emerald-500/20 text-emerald-400 font-bold px-2 py-0.5 rounded-full';
+      count.textContent = '5 weeks';
+      btn.textContent = 'Completed';
+      btn.className = 'px-3.5 py-1.5 rounded-lg bg-zinc-800 text-zinc-500 font-outfit font-bold text-[10px] cursor-default';
+      
+      createConfetti(card);
+    }
+  </script>
 </body>
 </html>

@@ -6,28 +6,61 @@
   <title>BtwUs — Privacy & Terms Center</title>
   <meta name="description" content="Privacy Policy & Terms of Service for BtwUs — Your private relationship archive. 100% offline and encrypted.">
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/APP LOGO.png">
-
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://btwus.app/privacy.html">
   <meta property="og:title" content="BtwUs — Privacy & Terms Center">
   <meta property="og:description" content="Privacy Policy & Terms of Service for BtwUs — Your private relationship archive. 100% offline and encrypted.">
-  <meta property="og:image" content="assets/images/app_hero_mockup.jpg">
+  <meta property="og:image" content="https://btwus.app/assets/images/app_hero_mockup.jpg">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://btwus.app/privacy.html">
-  <meta property="twitter:title" content="BtwUs — Privacy & Terms Center">
-  <meta property="twitter:description" content="Privacy Policy & Terms of Service for BtwUs — Your private relationship archive. 100% offline and encrypted.">
-  <meta property="twitter:image" content="assets/images/app_hero_mockup.jpg">
-  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/APP LOGO.png">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Google Fonts: Outfit & Inter -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0B0609;
+      color: #FFF5F7;
+    }
+    
+    .font-outfit {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0609;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #25131E;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #FF4D7D;
+    }
+
+    /* Keyboard focus accessibility outline */
+    *:focus-visible {
+      outline: 2px solid #FF4D7D !important;
+      outline-offset: 4px !important;
+    }
+
+    /* Gradient Text Utility */
+    .text-gradient-coral {
+      background: linear-gradient(135deg, #FF5C8A 0%, #FF8C6B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 
   <!-- Tailwind Configuration -->
   <script>
@@ -36,107 +69,106 @@
         extend: {
           colors: {
             brand: {
-              background: '#FFF7F5',
-              surface: '#FFFFFF',
+              background: '#0B0609',
+              dark: '#140A10',
+              card: '#1F111A',
+              border: '#351C2C',
               accent: '#FF4D7D',
-              text: '#2B1F29',
-              muted: '#9C8B97',
               start: '#FF5C8A',
               end: '#FF8C6B',
-              divider: 'rgba(255, 77, 125, 0.08)',
-              shadow: 'rgba(255, 92, 138, 0.16)'
+              text: '#FFF5F7',
+              muted: '#AC9EA8'
             }
           },
           boxShadow: {
-            'brand-soft': '0 8px 30px rgba(255, 92, 138, 0.06)',
-            'brand-glow': '0 4px 20px rgba(255, 77, 125, 0.15)',
+            'brand-glow': '0 0 30px rgba(255, 77, 125, 0.15)',
+            'inner-glow': 'inset 0 0 15px rgba(255, 77, 125, 0.05)'
           }
         }
       }
     }
   </script>
 </head>
-<body class="min-h-screen flex flex-col bg-brand-background text-brand-text selection:bg-brand-accent selection:text-white">
+<body class="min-h-screen flex flex-col bg-brand-background selection:bg-brand-accent selection:text-white relative overflow-x-hidden">
 
-  <!-- Skip Navigation Link for Screen Readers (WCAG 2.4.1) -->
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-white focus:text-brand-accent focus:px-4 focus:py-2 focus:rounded-full focus:shadow-lg focus:border focus:border-brand-divider focus:outline-none">
-    Skip to main content
-  </a>
+  <!-- Ambient Glow Backdrops -->
+  <div class="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-brand-start to-brand-accent filter blur-[150px] opacity-10 pointer-events-none"></div>
 
-  <!-- Floating Navigation / Header -->
-  <header id="main-header" class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-brand-divider transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <!-- Logo back to home -->
+  <!-- Header Navigation -->
+  <header id="main-header" class="sticky top-0 z-50 bg-brand-background/80 backdrop-blur-md border-b border-white/[0.04] transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
       <a href="index.html" class="flex items-center space-x-3 group" aria-label="BtwUs Homepage">
-        <!-- Logo Icon (Hearts) -->
-        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-start to-brand-end flex items-center justify-center shadow-brand-glow text-white transform group-hover:scale-105 transition duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 animate-pulse" aria-hidden="true">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-brand-start to-brand-end flex items-center justify-center shadow-brand-glow text-white transform group-hover:scale-105 transition duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5 animate-pulse" aria-hidden="true">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
         </div>
-        <div>
-          <span class="font-outfit font-extrabold text-xl tracking-tight bg-gradient-to-r from-brand-start to-brand-end bg-clip-text text-transparent">BtwUs</span>
-          <span class="hidden sm:inline-block text-xs font-semibold text-brand-muted px-2 py-0.5 ml-2 bg-brand-background rounded-full border border-brand-divider">OFFLINE-FIRST</span>
-        </div>
+        <span class="font-outfit font-black text-2xl tracking-tight bg-gradient-to-r from-brand-start to-brand-end bg-clip-text text-transparent">BtwUs</span>
       </a>
-      
-      <!-- Interactive Tab Switches -->
-      <div class="bg-brand-background p-1 rounded-full border border-brand-divider flex space-x-1" role="tablist" aria-label="Legal Center Navigation">
-        <button id="tab-privacy-btn" role="tab" aria-selected="true" aria-controls="privacy-section" class="px-4 py-1.5 rounded-full font-outfit text-sm font-semibold transition-all duration-300 shadow-sm bg-gradient-to-r from-brand-start to-brand-end text-white focus:outline-none">
+
+      <!-- Tab Switcher -->
+      <div class="bg-brand-dark p-1 rounded-full border border-brand-border flex space-x-1">
+        <button id="tab-privacy-btn" onclick="switchTab('privacy')" class="px-4 py-1.5 rounded-full font-outfit text-xs font-bold transition-all duration-300 bg-gradient-to-r from-brand-start to-brand-end text-white shadow-brand-glow">
           Privacy Policy
         </button>
-        <button id="tab-terms-btn" role="tab" aria-selected="false" aria-controls="terms-section" class="px-4 py-1.5 rounded-full font-outfit text-sm font-semibold transition-all duration-300 text-brand-muted hover:text-brand-text focus:outline-none">
+        <button id="tab-terms-btn" onclick="switchTab('terms')" class="px-4 py-1.5 rounded-full font-outfit text-xs font-semibold transition-all duration-300 text-brand-muted hover:text-brand-text">
           Terms of Service
         </button>
+      </div>
+
+      <!-- Action Area -->
+      <div>
+        <a href="index.html" class="px-4 py-2 rounded-full border border-brand-border text-xs font-semibold text-brand-text hover:bg-brand-card transition">
+          &larr; Back to App Showcase
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Banner -->
-  <section class="relative bg-gradient-to-br from-brand-start via-brand-accent to-brand-end py-16 px-4 text-center text-white overflow-hidden">
-    <!-- Abstract light graphics/shapes -->
-    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-    <div class="relative z-10 max-w-3xl mx-auto">
-      <h1 id="hero-title" class="font-outfit font-black text-4xl md:text-5xl tracking-tight mb-4 drop-shadow-sm">
+  <!-- Hero Section -->
+  <section class="relative bg-brand-dark/40 py-16 px-6 text-center border-b border-brand-border/40 overflow-hidden">
+    <div class="relative z-10 max-w-3xl mx-auto space-y-4">
+      <h1 id="hero-title" class="font-outfit font-black text-4xl md:text-5xl tracking-tight leading-[1.1] text-gradient-coral">
         BtwUs Privacy Policy
       </h1>
-      <p id="hero-subtitle" class="text-white/90 text-lg md:text-xl font-medium max-w-xl mx-auto">
+      <p id="hero-subtitle" class="text-brand-muted text-base md:text-lg max-w-2xl mx-auto">
         Your relationship data is sacred. That is why it is stored locally and completely encrypted. No cloud, no catch.
       </p>
-      <div class="mt-6 inline-flex items-center space-x-2 text-xs font-semibold bg-white/10 px-3 py-1.5 rounded-full border border-white/20">
+      <div class="inline-flex items-center space-x-2 text-xs text-brand-muted bg-brand-card border border-brand-border px-4.5 py-1.5 rounded-full">
         <span>Last Updated: June 24, 2026</span>
-        <span class="text-white/50">•</span>
+        <span class="text-brand-border">•</span>
         <span>Version 1.0</span>
       </div>
     </div>
   </section>
 
-  <!-- Core Content Layout Landmark -->
-  <main id="main-content" class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
+  <!-- Legal Main Content -->
+  <main id="main-content" class="max-w-6xl mx-auto px-6 py-12 flex-grow w-full">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
       
       <!-- Side Navigation Panel (Desktop Floating) -->
-      <aside class="hidden lg:block lg:col-span-1" aria-label="Sidebar Navigation">
+      <aside class="hidden lg:block lg:col-span-1">
         <div class="sticky top-24 space-y-4">
-          <p class="font-outfit text-xs font-bold uppercase tracking-wider text-brand-muted px-3">On This Page</p>
+          <p class="font-outfit text-[10px] font-black uppercase tracking-wider text-brand-accent px-3">On This Page</p>
           
           <!-- Privacy Nav List -->
-          <nav id="privacy-nav" class="space-y-1 block" aria-label="Privacy sections">
-            <a href="#privacy-promise" class="flex items-center px-3 py-2 text-sm font-semibold rounded-lg text-brand-accent bg-white border border-brand-divider shadow-brand-soft">Our Privacy Promise</a>
-            <a href="#data-collection" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Data We Collect</a>
-            <a href="#on-device-ai" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">On-Device AI</a>
-            <a href="#admob-iap" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Ads & Subscriptions</a>
-            <a href="#data-deletion" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Deletes & Backups</a>
-            <a href="#contact" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Contact Support</a>
+          <nav id="privacy-nav" class="space-y-1 block">
+            <a href="#privacy-promise" class="flex items-center px-3 py-2 text-xs font-bold rounded-lg text-brand-accent bg-brand-card border border-brand-border shadow-brand-glow">Our Privacy Promise</a>
+            <a href="#data-collection" class="flex items-center px-3 py-2 text-xs font-semibold rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-card/45 transition">Data We Collect</a>
+            <a href="#on-device-ai" class="flex items-center px-3 py-2 text-xs font-semibold rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-card/45 transition">On-Device AI</a>
+            <a href="#admob-iap" class="flex items-center px-3 py-2 text-xs font-semibold rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-card/45 transition">Ads & Subscriptions</a>
+            <a href="#data-deletion" class="flex items-center px-3 py-2 text-xs font-semibold rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-card/45 transition">Deletes & Backups</a>
+            <a href="#contact" class="flex items-center px-3 py-2 text-xs font-semibold rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-card/45 transition">Contact Support</a>
           </nav>
 
           <!-- Terms Nav List -->
-          <nav id="terms-nav" class="space-y-1 hidden" aria-label="Terms sections">
-            <a href="#terms-usage" class="flex items-center px-3 py-2 text-sm font-semibold rounded-lg text-brand-accent bg-white border border-brand-divider shadow-brand-soft">Usage License</a>
-            <a href="#terms-responsibility" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Your Responsibilities</a>
-            <a href="#terms-billing" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Billing & Subscriptions</a>
-            <a href="#terms-liability" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Liability Disclaimers</a>
-            <a href="#terms-changes" class="flex items-center px-3 py-2 text-sm font-medium rounded-lg text-brand-muted hover:text-brand-text hover:bg-white/50 transition">Changes to Terms</a>
+          <nav id="terms-nav" class="space-y-1 hidden">
+            <a href="#terms-usage" class="flex items-center px-3 py-2 text-xs font-bold rounded-lg text-brand-accent bg-brand-card border border-brand-border shadow-brand-glow">Usage License</a>
+            <a href="#terms-responsibility" class="flex items-center px-3 py-2 text-xs font-semibold rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-card/45 transition">Your Responsibilities</a>
+            <a href="#terms-billing" class="flex items-center px-3 py-2 text-xs font-semibold rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-card/45 transition font-outfit">Billing & Subscriptions</a>
+            <a href="#terms-liability" class="flex items-center px-3 py-2 text-xs font-semibold rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-card/45 transition font-outfit">Liability Disclaimers</a>
+            <a href="#terms-changes" class="flex items-center px-3 py-2 text-xs font-semibold rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-card/45 transition">Changes to Terms</a>
           </nav>
         </div>
       </aside>
@@ -145,10 +177,10 @@
       <div class="lg:col-span-3 space-y-12">
         
         <!-- ==================== PRIVACY POLICY PAGE ==================== -->
-        <div id="privacy-section" role="tabpanel" aria-labelledby="tab-privacy-btn" class="space-y-10 block">
+        <div id="privacy-section" class="space-y-10 block">
           
           <!-- Card 1: Our Privacy Promise -->
-          <section id="privacy-promise" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="privacy-promise" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-4">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -156,24 +188,24 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">Our Privacy Promise</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">Our Privacy Promise</h2>
             </div>
-            <p class="text-brand-text/95 leading-relaxed mb-4 font-medium">
-              BtwUs is built on a simple, uncompromising premise: **what happens between you and your partner belongs only to the two of you**. 
+            <p class="text-brand-muted leading-relaxed mb-4 text-sm">
+              BtwUs is built on a simple, uncompromising premise: <strong class="text-white font-semibold">what happens between you and your partner belongs only to the two of you</strong>. 
             </p>
-            <div class="bg-brand-background border border-brand-divider rounded-xl p-5 mb-4">
-              <h3 class="font-outfit font-bold text-brand-accent mb-2">100% Offline & Private</h3>
-              <p class="text-sm text-brand-text/90 leading-relaxed">
+            <div class="bg-brand-background/60 border border-brand-border rounded-xl p-5 mb-4">
+              <h3 class="font-outfit font-bold text-brand-accent text-sm mb-2">100% Offline & Private</h3>
+              <p class="text-xs text-brand-muted leading-relaxed">
                 The application does not use external accounts, user registration, or cloud hosting servers. Everything you create, write, or import is stored strictly on your local physical device in an encrypted sandbox.
               </p>
             </div>
-            <p class="text-brand-text/95 leading-relaxed">
-              We do not collect, view, monitor, track, store, or sell any of your chats, relationships, emotions, media, or data.
+            <p class="text-brand-muted leading-relaxed text-sm">
+              We do not collect, view, monitor, track, store, or sell any of your chats, relationships, emotions, media, or database contents.
             </p>
           </section>
 
           <!-- Card 2: What We Collect -->
-          <section id="data-collection" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="data-collection" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-6">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -181,36 +213,36 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">Data We Collect (And What We Don't)</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">Data We Collect (And What We Don't)</h2>
             </div>
             
             <div class="space-y-6">
               <div>
-                <h3 class="font-outfit font-bold text-lg mb-2">A. Relational Content (Memories, Commitments, Chats)</h3>
-                <p class="text-brand-text/95 leading-relaxed">
-                  You may choose to record memories, track promise streaks, log fights/resolutions, and import offline WhatsApp export logs. 
+                <h3 class="font-outfit font-bold text-white text-base mb-2">A. Relational Content (Memories, Commitments, Chats)</h3>
+                <p class="text-brand-muted leading-relaxed text-sm">
+                  You may choose to record memories, track promise streaks, log commitments, and import offline WhatsApp export logs. 
                   <strong class="text-brand-accent font-semibold">None of this content leaves your phone.</strong> It is directly parsed and saved within a secure local database (Drift/SQLite) which is protected by AES-256 encryption.
                 </p>
               </div>
               
-              <div class="border-t border-brand-divider pt-6">
-                <h3 class="font-outfit font-bold text-lg mb-2">B. Media Attachments</h3>
-                <p class="text-brand-text/95 leading-relaxed">
+              <div class="border-t border-brand-border/40 pt-6">
+                <h3 class="font-outfit font-bold text-white text-base mb-2">B. Media Attachments</h3>
+                <p class="text-brand-muted leading-relaxed text-sm">
                   Images, videos, documents, and voice recordings selected by you are saved in the app's isolated local subdirectory on your device. We do not index these files to any cloud servers.
                 </p>
               </div>
 
-              <div class="border-t border-brand-divider pt-6">
-                <h3 class="font-outfit font-bold text-lg mb-2">C. Access Credentials</h3>
-                <p class="text-brand-text/95 leading-relaxed">
-                  If you enable Biometric Authentication (Fingerprint or Face Unlock) or set a secure PIN, these verification queries are handled natively by your Android operating system. The app never intercepts, handles, or uploads your raw biometric credentials.
+              <div class="border-t border-brand-border/40 pt-6">
+                <h3 class="font-outfit font-bold text-white text-base mb-2">C. Access Credentials</h3>
+                <p class="text-brand-muted leading-relaxed text-sm">
+                  If you enable Biometric Authentication (Fingerprint or Face Unlock) or set a secure PIN, these verification queries are handled natively by your operating system. The app never intercepts, handles, or uploads your raw biometric credentials.
                 </p>
               </div>
             </div>
           </section>
 
           <!-- Card 3: On-Device AI Processing -->
-          <section id="on-device-ai" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="on-device-ai" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-4">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -219,21 +251,21 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.071 4.929a10 10 0 00-14.142 0M12 3v2M12 19v2M3 12h2M19 12h2" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">On-Device AI Engine</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">On-Device AI Engine</h2>
             </div>
-            <p class="text-brand-text/95 leading-relaxed mb-4">
+            <p class="text-brand-muted leading-relaxed text-sm mb-4">
               BtwUs employs intelligent search models, language identification, and entity extraction to automatically tag and catalog your memories (e.g., tagging sweet messages, fights, promises, or dates).
             </p>
-            <div class="bg-brand-background border border-brand-divider rounded-xl p-5">
-              <h4 class="font-outfit font-bold text-brand-accent text-sm uppercase tracking-wider mb-2">Zero Network Transmission</h4>
-              <p class="text-sm text-brand-text/90 leading-relaxed">
-                All semantic classification and text search indexing are computed directly on your phone using **Google ML Kit** local APIs. There are no API requests, telemetry streams, or network-bound payloads associated with the intelligence features of this application.
+            <div class="bg-brand-background/60 border border-brand-border rounded-xl p-5">
+              <h4 class="font-outfit font-bold text-brand-accent text-xs uppercase tracking-wider mb-2">Zero Network Transmission</h4>
+              <p class="text-xs text-brand-muted leading-relaxed">
+                All semantic classification and text search indexing are computed directly on your phone using <strong class="text-white">Google ML Kit</strong> local APIs. There are no API requests, telemetry streams, or network-bound payloads associated with the intelligence features of this application.
               </p>
             </div>
           </section>
 
           <!-- Card 4: Third-Party Disclosures (AdMob & IAP) -->
-          <section id="admob-iap" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="admob-iap" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-6">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -241,28 +273,28 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">Integrations & Third-Party Disclosures</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">Integrations & Third-Party Disclosures</h2>
             </div>
             
-            <p class="text-brand-text/95 leading-relaxed mb-6">
-              To support development and handle premium subscriptions securely, BtwUs integrates with Google ecosystem platforms. These platforms collect specific, restricted data:
+            <p class="text-brand-muted leading-relaxed text-sm mb-6">
+              To support development and handle premium subscriptions securely, BtwUs integrates with Google Play services. These platforms collect specific, restricted data:
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="p-5 border border-brand-divider rounded-xl hover:border-brand-accent transition">
+              <div class="p-5 border border-brand-border bg-brand-background/40 rounded-xl hover:border-brand-accent transition">
                 <div class="flex items-center space-x-2 mb-2">
                   <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
-                  <h4 class="font-outfit font-bold">Google Mobile Ads (AdMob)</h4>
+                  <h4 class="font-outfit font-bold text-white text-sm">Google Mobile Ads (AdMob)</h4>
                 </div>
                 <p class="text-xs text-brand-muted leading-relaxed">
                   Displays banners/interstitials inside the free tier. AdMob collects standard device identifiers (e.g., Android Advertising ID) for ad delivery, targeting, and analytics. No personal relational context is ever shared with ad brokers.
                 </p>
               </div>
 
-              <div class="p-5 border border-brand-divider rounded-xl hover:border-brand-accent transition">
+              <div class="p-5 border border-brand-border bg-brand-background/40 rounded-xl hover:border-brand-accent transition">
                 <div class="flex items-center space-x-2 mb-2">
                   <span class="w-2 h-2 rounded-full bg-green-500"></span>
-                  <h4 class="font-outfit font-bold">Google Play Billing (IAP)</h4>
+                  <h4 class="font-outfit font-bold text-white text-sm">Google Play Billing (IAP)</h4>
                 </div>
                 <p class="text-xs text-brand-muted leading-relaxed">
                   Processes subscriptions (Plus/Premium). Transaction logs, licenses, and product ID receipts are processed by the Google Play Store billing client to validate your subscription. We do not store or access your payment credentials.
@@ -272,7 +304,7 @@
           </section>
 
           <!-- Card 5: Deleting Data and Backups -->
-          <section id="data-deletion" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="data-deletion" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-4">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -280,21 +312,21 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">Control, Deletion & Backups</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">Control, Deletion & Backups</h2>
             </div>
             
-            <p class="text-brand-text/95 leading-relaxed mb-4">
+            <p class="text-brand-muted leading-relaxed text-sm mb-4">
               You maintain total dominion over your archive at all times:
             </p>
-            <ul class="list-disc pl-5 space-y-2 text-brand-text/95 leading-relaxed mb-6">
-              <li><strong>Local Purge:</strong> You can permanently wipe your entire record database and media cache at any time via <code class="bg-brand-background text-brand-accent px-1.5 py-0.5 rounded text-sm font-semibold">Settings → Delete all data</code>. This action is instantaneous and cannot be undone.</li>
+            <ul class="list-disc pl-5 space-y-2 text-brand-muted leading-relaxed text-xs mb-6">
+              <li><strong>Local Purge:</strong> You can permanently wipe your entire record database and media cache at any time via <code class="bg-brand-background text-brand-accent px-1.5 py-0.5 rounded text-[11px] font-semibold border border-brand-border">Settings → Delete all data</code>. This action is instantaneous and cannot be undone.</li>
               <li><strong>App Uninstallation:</strong> Uninstalling the BtwUs application from your Android phone will trigger the system to delete all local folders associated with BtwUs, resulting in absolute deletion.</li>
               <li><strong>Local Backup:</strong> You can export your data as an encrypted <code class="text-brand-accent font-semibold">.btwus</code> ZIP package locally. It is your responsibility to save and store this backup file securely, as we do not host backups on cloud servers.</li>
             </ul>
           </section>
 
           <!-- Card 6: Contact -->
-          <section id="contact" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="contact" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-4">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -302,23 +334,23 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">Contact Support</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">Contact Support</h2>
             </div>
-            <p class="text-brand-text/95 leading-relaxed mb-4">
+            <p class="text-brand-muted leading-relaxed text-sm mb-4">
               If you have any questions or feedback regarding this privacy policy or our offline architecture, feel free to contact us:
             </p>
-            <div class="bg-brand-background p-4 rounded-xl border border-brand-divider inline-flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
-              <span class="text-sm font-semibold text-brand-muted">Support Email:</span>
-              <a href="mailto:sourabh3527@gmail.com" class="text-brand-accent font-bold hover:underline">sourabh3527@gmail.com</a>
+            <div class="bg-brand-background p-4 rounded-xl border border-brand-border inline-flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+              <span class="text-xs font-semibold text-brand-muted">Support Email:</span>
+              <a href="mailto:sourabh3527@gmail.com" class="text-brand-accent font-bold hover:underline text-sm">sourabh3527@gmail.com</a>
             </div>
           </section>
         </div>
 
         <!-- ==================== TERMS OF SERVICE PAGE ==================== -->
-        <div id="terms-section" role="tabpanel" aria-labelledby="tab-terms-btn" class="space-y-10 hidden">
+        <div id="terms-section" class="space-y-10 hidden">
           
           <!-- Card 1: Usage License -->
-          <section id="terms-usage" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="terms-usage" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-4">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -326,21 +358,21 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">Usage License</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">Usage License</h2>
             </div>
-            <p class="text-brand-text/95 leading-relaxed mb-4">
+            <p class="text-brand-muted leading-relaxed text-sm mb-4">
               By installing or using BtwUs, you accept these Terms of Service. BtwUs grants you a limited, non-exclusive, non-transferable, revocable license to use the app for personal, non-commercial purposes.
             </p>
-            <div class="bg-brand-background border border-brand-divider rounded-xl p-5">
-              <h4 class="font-outfit font-bold text-brand-accent mb-2">Permitted Boundaries</h4>
-              <p class="text-sm text-brand-text/90 leading-relaxed">
+            <div class="bg-brand-background/60 border border-brand-border rounded-xl p-5">
+              <h4 class="font-outfit font-bold text-brand-accent text-sm mb-2">Permitted Boundaries</h4>
+              <p class="text-xs text-brand-muted leading-relaxed">
                 You may use this app to record personal memories, promises, and conversations with your partner. You may not reverse-engineer, decompile, resell, or distribute the application without direct developer authorization.
               </p>
             </div>
           </section>
 
           <!-- Card 2: Your Responsibilities -->
-          <section id="terms-responsibility" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="terms-responsibility" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-4">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -348,24 +380,24 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">Your Responsibilities & Data Care</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">Your Responsibilities & Data Care</h2>
             </div>
             
-            <p class="text-brand-text/95 leading-relaxed mb-4">
-              Because BtwUs is a **100% offline app**, it does not sync your data to any remote servers. This introduces specific ownership policies:
+            <p class="text-brand-muted leading-relaxed text-sm mb-4">
+              Because BtwUs is a <strong class="text-white">100% offline app</strong>, it does not sync your data to any remote servers. This introduces specific ownership policies:
             </p>
             
             <div class="space-y-4">
-              <div class="p-4 bg-orange-50 border border-orange-200 rounded-xl">
-                <h4 class="font-outfit font-bold text-orange-800 mb-1">No Cloud Recovery</h4>
-                <p class="text-xs text-orange-950 leading-relaxed">
-                  If your device is lost, stolen, formatted, severely damaged, or if you delete the app cache/files without having exported a backup, **your memories are lost permanently**. We cannot restore them because we never hold copies of your data.
+              <div class="p-4 bg-orange-500/10 border border-orange-500/30 rounded-xl">
+                <h4 class="font-outfit font-bold text-orange-400 mb-1 text-sm">No Cloud Recovery</h4>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                  If your device is lost, stolen, formatted, severely damaged, or if you delete the app cache/files without having exported a backup, <strong class="text-white font-semibold">your memories are lost permanently</strong>. We cannot restore them because we never hold copies of your data.
                 </p>
               </div>
 
-              <div class="p-4 bg-brand-background border border-brand-divider rounded-xl">
-                <h4 class="font-outfit font-bold text-brand-accent mb-1">Securing Your Access</h4>
-                <p class="text-xs text-brand-text/90 leading-relaxed">
+              <div class="p-4 bg-brand-background/60 border border-brand-border rounded-xl">
+                <h4 class="font-outfit font-bold text-brand-accent mb-1 text-sm">Securing Your Access</h4>
+                <p class="text-xs text-brand-muted leading-relaxed">
                   You are solely responsible for setting strong access PINs and enabling biometrics if you want to keep others from opening the app on your physical device.
                 </p>
               </div>
@@ -373,7 +405,7 @@
           </section>
 
           <!-- Card 3: Billing & In-App Purchases -->
-          <section id="terms-billing" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="terms-billing" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-4">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -381,13 +413,13 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">Billing & Premium Subscriptions</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">Billing & Premium Subscriptions</h2>
             </div>
             
-            <p class="text-brand-text/95 leading-relaxed mb-4">
+            <p class="text-brand-muted leading-relaxed text-sm mb-4">
               BtwUs offers free features alongside premium tiers (Plus and Premium) that can be unlocked via subscriptions or one-time lifetime purchases.
             </p>
-            <ul class="list-disc pl-5 space-y-2 text-brand-text/95 leading-relaxed mb-6">
+            <ul class="list-disc pl-5 space-y-2 text-brand-muted leading-relaxed text-xs mb-6">
               <li><strong>Billing Store:</strong> Transactions are handled through Google Play Billing. You are bound by the Google Play Store Terms of Service for all subscription billing cycles.</li>
               <li><strong>Free Trials:</strong> Premium options may feature a 7-day trial. If not canceled before expiry, you will be automatically billed.</li>
               <li><strong>Cancellation:</strong> You can manage or cancel your subscription at any time within your Google Play Store Account settings.</li>
@@ -396,7 +428,7 @@
           </section>
 
           <!-- Card 4: Disclaimers & Liability -->
-          <section id="terms-liability" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="terms-liability" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-4">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -404,22 +436,22 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">Disclaimers & Limitation of Liability</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">Disclaimers & Liability Limitations</h2>
             </div>
             
-            <p class="text-brand-text/95 leading-relaxed mb-4 uppercase text-xs font-bold text-brand-muted tracking-wider">Disclaimer of Warranties</p>
-            <p class="text-brand-text/95 leading-relaxed mb-6 font-medium">
+            <p class="text-white leading-relaxed mb-4 uppercase text-xs font-bold tracking-wider">Disclaimer of Warranties</p>
+            <p class="text-brand-muted leading-relaxed text-sm mb-6">
               BtwUs is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, or non-infringement.
             </p>
 
-            <p class="text-brand-text/95 leading-relaxed mb-4 uppercase text-xs font-bold text-brand-muted tracking-wider">Limitation of Liability</p>
-            <p class="text-brand-text/95 leading-relaxed">
+            <p class="text-white leading-relaxed mb-4 uppercase text-xs font-bold tracking-wider">Limitation of Liability</p>
+            <p class="text-brand-muted leading-relaxed text-sm">
               In no event shall the developer of BtwUs be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
             </p>
           </section>
 
           <!-- Card 5: Changes to Terms -->
-          <section id="terms-changes" class="bg-white rounded-2xl p-6 md:p-8 border border-brand-divider shadow-brand-soft relative overflow-hidden">
+          <section id="terms-changes" class="bg-brand-card/50 rounded-2xl p-6 md:p-8 border border-brand-border relative overflow-hidden">
             <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-accent"></div>
             <div class="flex items-center space-x-3 mb-4">
               <span class="text-brand-accent p-2 bg-brand-background rounded-lg">
@@ -427,9 +459,9 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
                 </svg>
               </span>
-              <h2 class="font-outfit font-extrabold text-2xl">Changes to Terms</h2>
+              <h2 class="font-outfit font-extrabold text-2xl text-white">Changes to Terms</h2>
             </div>
-            <p class="text-brand-text/95 leading-relaxed">
+            <p class="text-brand-muted leading-relaxed text-sm">
               We reserve the right to revise or modify these terms at any time. We will post updates directly inside this privacy and terms center. Continuing to use BtwUs after modifications are published constitutes acceptance of the new terms.
             </p>
           </section>
@@ -440,14 +472,107 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-white border-t border-brand-divider py-8 mt-12 text-center text-xs text-brand-muted">
-    <div class="max-w-6xl mx-auto px-4 space-y-2">
+  <footer class="bg-brand-dark border-t border-brand-border py-8 mt-12 text-center text-xs text-brand-muted">
+    <div class="max-w-6xl mx-auto px-6 space-y-2">
       <p class="font-outfit font-semibold text-brand-text">&copy; 2026 BtwUs Relationship Archive. All rights reserved.</p>
       <p>100% Client-Side. Developed by Sourabh.</p>
     </div>
   </footer>
 
-  <!-- Modular Script Injection -->
-  <script type="module" src="script.js"></script>
+  <!-- Tab toggles script -->
+  <script>
+    function switchTab(tab) {
+      const privacySection = document.getElementById('privacy-section');
+      const termsSection = document.getElementById('terms-section');
+      
+      const privacyBtn = document.getElementById('tab-privacy-btn');
+      const termsBtn = document.getElementById('tab-terms-btn');
+      
+      const privacyNav = document.getElementById('privacy-nav');
+      const termsNav = document.getElementById('terms-nav');
+      
+      const heroTitle = document.getElementById('hero-title');
+      const heroSubtitle = document.getElementById('hero-subtitle');
+
+      const activeBtnClasses = ['bg-gradient-to-r', 'from-brand-start', 'to-brand-end', 'text-white', 'shadow-brand-glow'];
+      const inactiveBtnClasses = ['text-brand-muted', 'hover:text-brand-text'];
+
+      if (tab === 'privacy') {
+        privacySection.classList.remove('hidden');
+        privacySection.classList.add('block');
+        termsSection.classList.add('hidden');
+        termsSection.classList.remove('block');
+        
+        privacyNav.classList.remove('hidden');
+        privacyNav.classList.add('block');
+        termsNav.classList.add('hidden');
+        termsNav.classList.remove('block');
+
+        activeBtnClasses.forEach(c => {
+          privacyBtn.classList.add(c);
+          termsBtn.classList.remove(c);
+        });
+        inactiveBtnClasses.forEach(c => {
+          privacyBtn.classList.remove(c);
+          termsBtn.classList.add(c);
+        });
+
+        heroTitle.textContent = "BtwUs Privacy Policy";
+        heroSubtitle.textContent = "Your relationship data is sacred. That is why it is stored locally and completely encrypted. No cloud, no catch.";
+      } else {
+        termsSection.classList.remove('hidden');
+        termsSection.classList.add('block');
+        privacySection.classList.add('hidden');
+        privacySection.classList.remove('block');
+
+        termsNav.classList.remove('hidden');
+        termsNav.classList.add('block');
+        privacyNav.classList.add('hidden');
+        privacyNav.classList.remove('block');
+
+        activeBtnClasses.forEach(c => {
+          termsBtn.classList.add(c);
+          privacyBtn.classList.remove(c);
+        });
+        inactiveBtnClasses.forEach(c => {
+          termsBtn.classList.remove(c);
+          privacyBtn.classList.add(c);
+        });
+
+        heroTitle.textContent = "BtwUs Terms of Service";
+        heroSubtitle.textContent = "Please read these simple terms carefully. By using our offline app, you agree to these rules and ownership disclaimers.";
+      }
+    }
+
+    // Scroll Observer for left panel links highlights
+    window.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+      };
+
+      const links = document.querySelectorAll('aside nav a');
+      const sections = document.querySelectorAll('section, main section');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            if (!id) return;
+            links.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.className = 'flex items-center px-3 py-2 text-xs font-bold rounded-lg text-brand-accent bg-brand-card border border-brand-border shadow-brand-glow';
+              } else {
+                link.className = 'flex items-center px-3 py-2 text-xs font-semibold rounded-lg text-brand-muted hover:text-brand-text hover:bg-brand-card/45 transition';
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
 </body>
 </html>
